@@ -1,0 +1,751 @@
+﻿<!DOCTYPE html>
+<html dir="rtl" lang="ar">
+
+<!-- Mirrored from 7oroof.com/demos/steakin/homepage-arabic.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 07 Nov 2024 07:49:20 GMT -->
+<head>
+    <!-- Document Meta
+    ============================================= -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!--IE Compatibility Meta-->
+    <meta name="author" content="zytheme" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="description" content="Elegant Restaurant & Cafe Html5 Template by zytheme">
+    <link href="~/assets/images/favicon/favicon.png" rel="icon">
+
+    <!-- Fonts
+    ============================================= -->
+    <link href="https://fonts.googleapis.com/css?family=Changa:200,300,400,500,600,700&amp;subset=arabic" rel="stylesheet">
+
+    <!-- Stylesheets
+    ============================================= -->
+    <link href="~/assets/css/external.css" rel="stylesheet">
+    <link href="~/assets/css/bootstrap.min.css" rel="stylesheet">
+    <link href="~/assets/css/style2.css" rel="stylesheet">
+    <link type="text/css" href="~/assets/css/style-rtl1.css" rel="stylesheet" />
+    <link type="text/css" href="~/assets/css/style-arabic.css" rel="stylesheet" />
+
+    <!-- RS5.0 Main Stylesheet -->
+    <link rel="stylesheet" type="text/css" href="~/assets/revolution/css/settings.css">
+    <link rel="stylesheet" type="text/css" href="~/assets/revolution/css/layers.css">
+    <link rel="stylesheet" type="text/css" href="~/assets/revolution/css/navigation.css">
+
+    <!-- HTML5 shim, for IE6-8 support of HTML5 elements. All other JS at the end of file. -->
+    <!--[if lt IE 9]>
+      <script src="assets/js/html5shiv.js"></script>
+      <script src="assets/js/respond.min.js"></script>
+    <![endif]-->
+    <!-- Document Title
+    ============================================= -->
+    <title>حلويات سلورة الشهباء</title>
+</head>
+
+
+<body>
+	<div class="preloader">
+    <div class="spinner">
+        <div class="bounce1"></div>
+        <div class="bounce2"></div>
+        <div class="bounce3"></div>
+    </div>
+</div>
+    <!-- Document Wrapper
+	============================================= -->
+    <div id="wrapper" class="wrapper clearfix">
+<header id="navbar-spy" class="header header-1 header-transparent header-fixed">
+    <nav id="primary-menu" class="navbar navbar-fixed-top">
+        <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse-1" aria-expanded="false">
+				<span class="sr-only">Toggle navigation</span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				</button>
+                <a class="logo" href="index.html">
+					<img class="logo-light" src="~/assets/images/logo/logo-light.png" alt="Steakin Logo" draggable="false">
+					<img class="logo-dark" src="~/assets/images/logo/logo-dark.png" alt="Steakin Logo" draggable="false">
+				</a>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse pull-right" id="navbar-collapse-1">
+                <ul class="nav navbar-nav nav-pos-right navbar-left">
+                            <!-- Home Menu -->
+                            <li class="has-dropdown mega-dropdown active">
+                                <a href="@Url.Action("Index", "Home")" class="dropdown-toggle menu-item">الرئيسية</a>
+                                <ul class="dropdown-menu">
+                                </ul>
+                                <!-- .mega-dropdown-menu end -->
+                            </li>
+                               
+                            <li class="has-dropdown">
+                                <a href="@Url.Action("AboutUs", "Home")" class="link-hover">من نحن</a>
+                            </li>
+                            <li class="has-dropdown">
+                                 <a href="@Url.Action("Menu", "Home")" class="link-hover">المنيو</a>
+                            </li>
+
+                            <li class="has-dropdown">
+                            <a href="@Url.Action("Branches", "Home")" class="link-hover">فروعنا</a>
+                            </li>
+                            <li>
+                                <a href="@Url.Action("FAQ", "Home")" class="link-hover">الأسئلة الشائعة</a>
+                            </li>
+
+                              </ul>
+
+
+                        <div class="module module-reservation pull-left">
+                        <a href="@Url.Action("Login", "Home")" class="btn-popup btn-popup-theme" data-target="#reservationModule">تسجيل دخول</a>
+                        </div>
+                        <!-- Module Reservation (Same Modal for Sign In) -->
+                       
+               
+                <!-- Module Search -->
+<div class="module module-search pull-left">
+    <div class="module-icon search-icon">
+        <i class="fa fa-search"></i>
+        <span class="title">بحث</span>
+    </div>
+    <div class="module-content module-fullscreen module--search-box">
+        <div class="pos-vertical-center">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xs-12 col-sm-12 col-md-8 col-md-offset-2">
+                        <form class="form-search">
+                            <input type="text" class="form-control" placeholder="اكتب كلمات البحث...">
+                            <button class="btn" type="button"><i class="fa fa-search"></i></button>
+                        </form>
+                        <!-- .form-search end -->
+                    </div>
+                    <!-- .col-md-8 end -->
+                </div>
+                <!-- .row end -->
+            </div>
+            <!-- .container end -->
+        </div>
+        <a class="module-cancel" href="#"><i class="fa fa-times"></i></a>
+    </div>
+</div>
+<!-- .module-search end -->
+                        <!-- Module Side NAV -->
+                        <div class="module module-side-nav pull-left">
+                            <div class="module-icon side-nav-icon">
+                                <i class="fa fa-bars"></i>
+                                <span class="title">Side Navigation</span>
+                            </div>
+                            <div class="module-content module-hamburger">
+                                <div class="hamburger-panel module-widgets" style="max-height: 80vh; overflow-y: auto;">
+                                    <!-- Facebook Feed -->
+                                    <div class="widget widget-facebook">
+                                        <div class="widget--title">
+                                            <h5>فيسبوك</h5>
+                                        </div>
+                                        <div class="widget--content">
+                                            <div class="fb-page"
+                                                 data-href="https://www.facebook.com/ALshahbaaSweets"
+                                                 data-tabs="timeline"
+                                                 data-width="500"
+                                                 data-height="300"
+                                                 data-small-header="false"
+                                                 data-adapt-container-width="true"
+                                                 data-hide-cover="false"
+                                                 data-show-facepile="true">
+                                            </div>
+                                            <div class="clearfix"></div>
+                                        </div>
+                                    </div>
+                                    <!-- .widget-facebook end -->
+                                    <!-- Instagram Feed -->
+                                    <div class="widget widget-instagram">
+                                        <div class="widget--title">
+                                            <h5>إنستجرام</h5>
+                                        </div>
+                                        <div class="widget--content" style="max-height: 80vh; overflow-y: auto; margin: auto;">
+                                            <blockquote class="instagram-media"
+                                                        data-instgrm-permalink="https://www.instagram.com/p/DC69YtXtavy/"
+                                                        data-instgrm-version="14"
+                                                        style="max-width: 100%; padding: 0; border: none; overflow: hidden; margin: auto;">
+                                            </blockquote>
+                                            <script async src="https://www.instagram.com/embed.js"></script>
+                                        </div>
+                                    </div>
+                                    <!-- .widget-instagram end -->
+                                    <!-- Tag Clouds -->
+                                    <div class="widget widget-tags">
+                                        <div class="widget--title">
+                                            <h5>الأوسمة</h5>
+                                        </div>
+                                        <div class="widget--content">
+                                            <a href="#">حلاوة الجبن</a>
+                                            <a href="#">حلاوة الجبن بالقشطة</a>
+                                            <a href="#">العروض الخاصة</a>
+                                            <a href="#">منتجاتنا</a>
+                                        </div>
+                                    </div>
+                                    <!-- .widget-tags end -->
+
+                                    <a class="module-cancel" href="#" onclick="event.stopPropagation(); closeSideNav();">
+                                        <i class="fa fa-times"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- /.module-side-nav -->
+                    </div>
+                    <!-- /.navbar-collapse -->
+                </div>
+                <!-- /.container-fluid -->
+            </nav>
+        </header>
+<!-- Hero Section ////////////////////////////////////////////////////////////////////////////////
+====================================== -->
+<section id="slider" class="slider slide-overlay-dark ltr">
+    <!-- START REVOLUTION SLIDER 5.0 -->
+    <div class="rev_slider_wrapper">
+        <div id="slider1" class="rev_slider" data-version="5.0">
+            <ul>
+                <!-- slide 1 -->
+                <li data-transition="zoomin" data-slotamount="default" data-easein="Power4.easeInOut" data-easeout="Power4.easeInOut" data-masterspeed="2000">
+                    <!-- MAIN IMAGE -->
+                            <img src="~/assets/images/sliders/slide-bg/1.jpg" alt="Slide Background Image" width="1920" height="1280">
+                    <!-- LAYER NR. 1 -->
+                    <div class="tp-caption" data-x="center" data-hoffset="0" data-y="center" data-voffset="-130" data-whitespace="nowrap" data-width="none" data-height="none" data-frames='[{"delay":1500,"speed":1000,"frame":"0","from":"y:-50px;opacity:0;","to":"o:1;","ease":"Power3.easeInOut"},{"delay":"wait","speed":300,"frame":"999","to":"auto:auto;","ease":"Power3.easeInOut"}]' data-splitin="none" data-splitout="none" data-responsive_offset="on">
+                        <div class="slide--subheadline">أهلا بك في حلويات سلورة الشهباء</div>
+                    </div>
+
+                    <!-- LAYER NR. 2 -->
+                    <div class="tp-caption" data-x="center" data-hoffset="0" data-y="center" data-voffset="-65" data-whitespace="nowrap" data-width="none" data-height="none" data-frames='[{"delay":1750,"speed":1000,"frame":"0","from":"x:-50px;opacity:0;","to":"o:1;","ease":"Power3.easeInOut"},{"delay":"wait","speed":300,"frame":"999","to":"auto:auto;","ease":"Power3.easeInOut"}]' data-splitin="none" data-splitout="none" data-responsive_offset="on">
+                         <div class="slide--headline">نحن روّاد الطعم الأصيل</div>
+                    </div>
+
+                    <!-- LAYER NR. 3 -->
+                    <div class="tp-caption" data-x="center" data-hoffset="0" data-y="center" data-voffset="20" data-width="none" data-height="none" data-frames='[{"delay":2000,"speed":1000,"frame":"0","from":"y:50px;opacity:0;","to":"o:1;","ease":"Power3.easeInOut"},{"delay":"wait","speed":300,"frame":"999","to":"opacity:0;","ease":"Power3.easeInOut"}]' data-splitin="none" data-splitout="none" data-responsive_offset="on">
+                                <div class="slide--bio text--center">
+                                    ،في سلورة، نقدم لكم تجربة لا مثيل لها من الحلويات الشرقية الأصيلة   <br>
+                                    .بلمسة من الإتقان والجودة، في أجواء تحمل عبق التقاليد
+                                </div>
+                            </div>
+
+                    <!-- LAYER NR. 4 -->
+                    <div class="tp-caption" data-x="center" data-hoffset="0" data-y="center" data-voffset="100" data-width="none" data-height="none" data-whitespace="nowrap" data-transform_idle="o:1;" data-transform_hover="o:1;rX:0;rY:0;rZ:0;z:0;s:300;e:Power3.easeOut;" data-style_hover="c:rgba(255, 255, 255, 1.00);bc:rgba(255, 255, 255, 1.00);" data-transform_in="y:[100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;opacity:0;s:2000;e:Power4.easeInOut;" data-transform_out="y:[175%];s:1000;e:Power2.easeInOut;s:1000;e:Power2.easeInOut;" data-mask_out="x:inherit;y:inherit;" data-start="1250" data-splitin="none" data-splitout="none" data-frames='[{"delay":2000,"speed":1500,"frame":"0","from":"y:bottom;rX:-20deg;rY:-20deg;rZ:0deg;","to":"o:1;","ease":"Power3.easeOut"},{"delay":"wait","speed":300,"frame":"999","to":"auto:auto;","ease":"Power3.easeInOut"}]' data-basealign="slide" data-responsive_offset="on" data-responsive="off">
+                        <div class="slide-action">
+                                    <a class="btn btn--white btn--bordered btn--rounded btn--lg" href="@Url.Action("Login", "Home")"> !انضم الينا الأن</a>
+                        </div>
+                    </div>
+                </li>
+
+                  
+                        <!-- slide 2 -->
+                        <li data-transition="slideoverdown" data-slotamount="default" data-easein="Power4.easeInOut" data-easeout="Power4.easeInOut" data-masterspeed="2000">
+                            <!-- MAIN IMAGE -->
+                            <img src="~/assets/images/sliders/slide-bg/3.jpg" alt="Slide Background Image" width="1920" height="1280">
+
+                            <!-- LAYER NR. 1 -->
+                            <div class="tp-caption" data-x="center" data-hoffset="0" data-y="center" data-voffset="-130" data-whitespace="nowrap" data-width="none" data-height="none" data-frames='[{"delay":1500,"speed":1500,"frame":"0","from":"z:0;rX:0;rY:0;rZ:0;sX:0.9;sY:0.9;skX:0;skY:0;opacity:0;","to":"o:1;","ease":"Power3.easeInOut"},{"delay":"wait","speed":300,"frame":"999","to":"auto:auto;","ease":"Power3.easeInOut"}]' data-splitin="none" data-splitout="none" data-responsive_offset="on">
+                                <div class="slide--subheadline">إبداع في كل قطعة</div>
+                            </div>
+
+                            <!-- LAYER NR. 2 -->
+                            <div class="tp-caption" data-x="center" data-hoffset="0" data-y="center" data-voffset="-65" data-whitespace="nowrap" data-width="none" data-height="none" data-frames='[{"delay":1750,"speed":1000,"frame":"0","from":"z:0;rX:0deg;rY:0;rZ:0;sX:2;sY:2;skX:0;skY:0;opacity:0;","mask":"x:0px;y:0px;s:inherit;e:inherit;","to":"o:1;","ease":"Power2.easeOut"},{"delay":"wait","speed":300,"frame":"999","to":"auto:auto;","ease":"Power3.easeInOut"}]' data-splitin="none" data-splitout="none" data-responsive_offset="on">
+                                <div class="slide--headline">نقدم لكم الطعم الأصيل</div>
+                            </div>
+
+                            <!-- LAYER NR. 3 -->
+                            <div class="tp-caption" data-x="center" data-hoffset="0" data-y="center" data-voffset="20" data-width="none" data-height="none" data-frames='[{"delay":2000,"speed":300,"frame":"0","from":"y:50px;opacity:0;","to":"o:1;","ease":"Power3.easeInOut"},{"delay":"wait","speed":300,"frame":"999","to":"opacity:0;","ease":"Power3.easeInOut"}]' data-splitin="none" data-splitout="none" data-responsive_offset="on">
+                                <div class="slide--bio text--center">حلويات سلورة الشهباء تجمع بين الأصالة والجودة<br> 
+                                    .لتقديم تجربة فريدة لا تُنسى لعشاق الحلويات الشرقية
+                                </div>
+                            </div>
+
+                            <!-- LAYER NR. 4 -->
+                            <div class="tp-caption" data-x="center" data-hoffset="0" data-y="center" data-voffset="100" data-width="none" data-height="none" data-whitespace="nowrap" data-frames='[{"delay":2250,"speed":1500,"frame":"0","from":"x:[-100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;","mask":"x:0px;y:0px;s:inherit;e:inherit;","to":"o:1;","ease":"Power3.easeInOut"},{"delay":"wait","speed":300,"frame":"999","to":"auto:auto;","ease":"Power3.easeInOut"}]' data-splitin="none" data-splitout="none" data-actions='[{"event":"click","action":"jumptoslide","slide":"rs-164","delay":""}]' data-basealign="slide" data-responsive_offset="on" data-responsive="off">
+                                <div class="slide-action">
+                                    <a class="btn btn--primary btn--inverse" href="@Url.Action("Menu", "Home")">اكتشف تشكيلتنا</a>
+                                </div>
+                            </div>
+                        </li>
+                        
+
+                <!-- slide 3 -->
+                <li data-transition="zoomout" data-slotamount="default" data-easein="Power4.easeInOut" data-easeout="Power4.easeInOut" data-masterspeed="2000">
+                    <!-- MAIN IMAGE -->
+                            <img src="~/assets/images/sliders/slide-bg/12.jpg" alt="Slide Background Image" width="1920" height="1280">
+                    <!-- LAYER NR. 1 -->
+                    <div class="tp-caption" data-x="center" data-hoffset="0" data-y="center" data-voffset="-65" data-whitespace="nowrap" data-width="none" data-height="none" data-frames='[{"delay":1500,"speed":1500,"frame":"0","from":"x:[-100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;","mask":"x:0px;y:0px;s:inherit;e:inherit;","to":"o:1;","ease":"Power3.easeInOut"},{"delay":"wait","speed":300,"frame":"999","to":"auto:auto;","ease":"Power3.easeInOut"}]' data-splitin="none" data-splitout="none" data-responsive_offset="on">
+                                <div class="slide--subheadline">استمتع بالعروض المميزة</div>
+                    </div>
+
+                    <!-- LAYER NR. 2 -->
+                    <div class="tp-caption" data-x="center" data-hoffset="0" data-y="center" data-voffset="0" data-whitespace="nowrap" data-width="none" data-height="none" data-frames='[{"delay":1750,"speed":1500,"frame":"0","from":"z:0;rX:0;rY:0;rZ:0;sX:0.9;sY:0.9;skX:0;skY:0;opacity:0;","to":"o:1;","ease":"Power3.easeInOut"},{"delay":"wait","speed":300,"frame":"999","to":"auto:auto;","ease":"Power3.easeInOut"}]' data-splitin="none" data-splitout="none" data-responsive_offset="on">
+                                <div class="slide--headline">حلويات طازجة يومياً</div>
+                    </div>
+
+                    <!-- LAYER NR. 3 -->
+                    <div class="tp-caption" data-x="center" data-hoffset="0" data-y="center" data-voffset="100" data-width="none" data-height="none" data-frames='[{"delay":2000,"speed":2000,"frame":"0","from":"y:[100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;opacity:0;","mask":"x:0px;y:[100%];s:inherit;e:inherit;","to":"o:1;","ease":"Power2.easeInOut"},{"delay":"wait","speed":300,"frame":"999","to":"auto:auto;","ease":"Power3.easeInOut"}]' data-splitin="none" data-splitout="none" data-responsive_offset="on">
+                                <div class="slide--bio text--center">في سلورة، نقدم لكم أشهى الحلويات الشرقية المصنوعة <br> .بأجود المكونات لتجربة لا تُنسى في أجواء مريحة ومميزة</div>
+                    </div>
+                </li>
+
+            </ul>
+        </div>
+        <!-- END REVOLUTION SLIDER -->
+    </div>
+    <!-- END OF SLIDER WRAPPER -->
+</section>
+
+        <!-- banner#4
+        ============================================= -->
+        <section id="banner4" class="banner banner-2 text-center bg-white">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xs-12 col-sm-12 col-md-6">
+                        <div class="heading heading-1 text--center">
+                            <p class="heading--subtitle">مرحباً بك عزيزي</p>
+                            <h2 class="heading--title">مرحباً بك في سلورة</h2>
+                            <div class="divider--shape-4"></div>
+                            <p class="heading--desc">سلورة هو مطعم مميز يقع في قلب الأردن، حيث يجمع بين الأجواء الفاخرة والخدمة المميزة. يتميز بتقديم تجربة طعام فريدة تركز على الجودة والابتكار. نقدم لعملائنا مجموعة واسعة من الأطباق الشهية التي يتم تحضيرها باستخدام أفضل المكونات. كما يحتوي المطعم على ركن خاص للقهوة، حيث يتم تحميص القهوة في الموقع، مما يضيف لمسة من التميز والتفرد لكل تجربة تناول طعام.</p>
+                        </div>
+                        <!-- .heading end -->
+                        <a class="btn btn--secondary btn--bordered btn--rounded mt-30" href="@Url.Action("Login", "Home")">انضم الينا الآن</a>
+                    </div>
+                    <!-- .col-md-6 end -->
+                    <div class="col-xs-12 col-sm-6 col-md-3">
+                        <div class="banner-img mt-20">
+                            <img src="~/assets/images/banners/4.jpg" alt="image">
+                        </div>
+                    </div>
+                    <!-- .col-md-3 end -->
+                    <div class="col-xs-12 col-sm-6 col-md-3">
+                        <div class="banner-img">
+                            <img src="~/assets/images/banners/5.jpg" alt="image">
+                        </div>
+                        <!-- .col-md-3 end -->
+                    </div>
+                    <!-- .col-md-3 end -->
+                </div>
+                <!-- .row end -->
+            </div>
+            <!-- .container end -->
+        </section>
+        <!-- #banner4 end -->
+        <!-- #banner4 end -->
+
+
+
+
+        
+        <!-- ==================Menu Section =================== -->
+
+            <div class="container-fluid pr-0 pl-0 tabs">
+                <div class="row">
+                    <div class="col-xs-12 col-sm-12 col-md-12">
+                        <section id="specials3" class="specials specials-3 menu-simple bg-overlay bg-parallax bg-overlay-dark">
+                            <div class="bg-section">
+                                <img src="assets/images/background/21.jpg" alt="Background" />
+                            </div>
+                            <div class="container">
+                                <div class="divider--shape-1up"></div>
+                                <div class="row">
+                                    <div class="col-xs-12 col-sm-12 col-md-10 col-md-offset-1">
+                                        <div class="dishes-wrapper">
+                                            <div class="dishes-bordered">
+                                                <div class="row">
+                                                    <div class="col-xs-12 col-sm-12 col-md-8 col-md-offset-2">
+                                                        <div class="heading heading-1 mb-50 text--center">
+                                                            <p class="heading--subtitle">نكهات شرقية مميزة</p>
+                                                            <h2 class="heading--title">أطباقنا الخاصة</h2>
+                                                            <div class="divider--shape-4"></div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                <!-- طبق #1 -->
+                                                <div class="col-xs-12 col-sm-12 col-md-6">
+                                                    <div class="product-item">
+                                                        <div class="product--img">
+                                                            <div class="dish-panel dish-panel-right">
+                                                                <div class="dish--img">
+                                                                    <img src="assets/images/menu/dish/1.jpg" alt="طبق">
+                                                                </div>
+                                                                <div class="dish--content">
+                                                                    <div class="dish--content-bio">
+                                                                        <h3 class="dish--title">الكنافة بالمكسرات</h3>
+                                                                        <div class="dish--price">15.00 دينار</div>
+                                                                    </div>
+                                                                    <p class="dish--desc">كنافة طازجة محشوة بالمكسرات والغنية بالنكهات الأصيلة.</p>
+                                                                </div>
+                                                               
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <!-- طبق #2 -->
+                                                <div class="col-xs-12 col-sm-12 col-md-6">
+                                                    <div class="product-item">
+                                                        <div class="product--img">
+                                                            <div class="dish-panel dish-panel-right">
+                                                                <div class="dish--img">
+                                                                    <img src="assets/images/menu/dish/2.jpg" alt="طبق">
+                                                                </div>
+                                                                <div class="dish--content">
+                                                                    <div class="dish--content-bio">
+                                                                        <h3 class="dish--title">البقلاوة الفاخرة</h3>
+                                                                        <div class="dish--price">12.00 دينار</div>
+                                                                    </div>
+                                                                    <p class="dish--desc">بقلاوة تقليدية محشوة بالفستق الحلبي ومغطاة بالعسل الطبيعي.</p>
+                                                                </div>
+                                                               
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <!-- طبق #3 -->
+                                                <div class="col-xs-12 col-sm-12 col-md-6">
+                                                    <div class="product-item">
+                                                        <div class="product--img">
+                                                            <div class="dish-panel dish-panel-right">
+                                                                <div class="dish--img">
+                                                                    <img src="assets/images/menu/dish/3.jpg" alt="طبق">
+                                                                </div>
+                                                                <div class="dish--content">
+                                                                    <div class="dish--content-bio">
+                                                                        <h3 class="dish--title">المعمول بالتمر</h3>
+                                                                        <div class="dish--price">10.00 دينار</div>
+                                                                    </div>
+                                                                    <p class="dish--desc">معمول بالتمر الطازج والمعطر بماء الزهر ليقدم طعماً لا يُنسى.</p>
+                                                                </div>
+                                                                
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <!-- طبق #4 -->
+                                                <div class="col-xs-12 col-sm-12 col-md-6">
+                                                    <div class="product-item">
+                                                        <div class="product--img">
+                                                            <div class="dish-panel dish-panel-right">
+                                                                <div class="dish--img">
+                                                                    <img src="assets/images/menu/dish/4.jpg" alt="طبق">
+                                                                </div>
+                                                                <div class="dish--content">
+                                                                    <div class="dish--content-bio">
+                                                                        <h3 class="dish--title">الغريبة الناعمة</h3>
+                                                                        <div class="dish--price">8.00 دينار</div>
+                                                                    </div>
+                                                                    <p class="dish--desc">غريبة ناعمة تذوب في الفم مع لمسة من الطعم الحلو المثالي.</p>
+                                                                </div>
+                                                               
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <!-- طبق #5 -->
+                                                <div class="col-xs-12 col-sm-12 col-md-6">
+                                                    <div class="product-item">
+                                                        <div class="product--img">
+                                                            <div class="dish-panel dish-panel-right">
+                                                                <div class="dish--img">
+                                                                    <img src="assets/images/menu/dish/5.jpg" alt="طبق">
+                                                                </div>
+                                                                <div class="dish--content">
+                                                                    <div class="dish--content-bio">
+                                                                        <h3 class="dish--title">أم علي</h3>
+                                                                        <div class="dish--price">12.50 دينار</div>
+                                                                    </div>
+                                                                    <p class="dish--desc">حلوى أم علي الشهية مع طبقات من العجين والحليب المكثف والمكسرات.</p>
+                                                                </div>
+                                                               
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <!-- طبق #6 -->
+                                                <div class="col-xs-12 col-sm-12 col-md-6">
+                                                    <div class="product-item">
+                                                        <div class="product--img">
+                                                            <div class="dish-panel dish-panel-right">
+                                                                <div class="dish--img">
+                                                                    <img src="assets/images/menu/dish/6.jpg" alt="طبق">
+                                                                </div>
+                                                                <div class="dish--content">
+                                                                    <div class="dish--content-bio">
+                                                                        <h3 class="dish--title">المهلبية بالورد</h3>
+                                                                        <div class="dish--price">9.00 دينار</div>
+                                                                    </div>
+                                                                    <p class="dish--desc">مهلبية كريمية مميزة بنكهة ماء الورد ومزينة بالفستق المطحون.</p>
+                                                                </div>
+                                                                
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                               
+                                                    <!-- Add the button here -->
+                                                <div class="col-xs-12 col-sm-12 col-md-12 text-center">
+                                                    <a class="btn btn--primary btn--block" href="@Url.Action("Menu", "Home")">عرض كامل القائمة</a>
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+                    </div>
+                </div>
+            </div>
+<!-- Testimonial #3
+============================================= -->
+            <!-- قسم الميزات -->
+            <section id="feature1" class="feature feature-1 text-center pb-60">
+                <div class="container">
+                    <div class="row">
+                        <!-- اللوحة #1 -->
+                        <div class="col-md-4" >
+                            <div class="feature-panel">
+                                <div class="feature--icon">
+                                    <img src="assets/images/icons/1.png" alt="رمز الميزة">
+                                </div>
+                                <div class="feature--content">
+                                    <h3>قوائم طازجة يومياً</h3>
+                                    <p>سلورة تقدم لك تجربة مميزة مع وجبات طازجة ومتنوعة كل يوم، بفضل طهاتنا المبدعين وقوائمنا المتجددة دائماً.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- اللوحة #2 -->
+                        <div class="col-md-4">
+                            <div class="feature-panel">
+                                <div class="feature--icon">
+                                    <img src="assets/images/icons/14.png" alt="رمز الميزة">
+                                </div>
+                                <div class="feature--content">
+                                    <h3>طهاة مبدعون</h3>
+                                    <p>في سلورة، نحرص على أن تدلل نفسك بوجبات متنوعة كل يوم، بفضل قوائمنا المتجددة وطهاتنا المبدعين الذين يضيفون لمساتهم الخاصة لكل طبق.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- اللوحة #3 -->
+                        <div class="col-md-4">
+                            <div class="feature-panel">
+                                <div class="feature--icon">
+                                    <img src="assets/images/icons/3.png" alt="رمز الميزة">
+                                </div>
+                                <div class="feature--content">
+                                    <h3>وجبات مميزة</h3>
+                                    <p>في سلورة، نعدك بتجربة فريدة من نوعها مع أطباق مبتكرة تجمع بين المذاق الرائع والتقديم الجذاب.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+<!-- #testimonial3 end -->
+            <!-- Reservation #1 ============================================= -->
+            <section id="reservation1" class="reservation reservation-1 bg-overlay bg-parallax bg-overlay-dark pb-70">
+                <div class="bg-section">
+                    <img src="assets/images/background/7.jpg" alt="Background" />
+                </div>
+                <div class="container">
+                    <div class="divider--shape-1up"></div>
+                    <div class="row">
+                        <div class="col-xs-12 col-sm-12 col-md-10 col-md-offset-1">
+                            <div class="reservation-form mb-30 text-center">
+                                <div class="reservation-bordered">
+                                    <div class="heading heading-1 text-center">
+                                        <p class="heading--subtitle">تسجيل الدخول</p>
+                                        <h2 class="heading--title">مرحباً بعودتك إلى سلورة</h2>
+                                        <div class="divider--shape-4"></div>
+                                    </div>
+                                    <div class="reservation--dec">
+                                        قم بتسجيل الدخول إلى حسابك للاستمتاع بتجربة مميزة مع قوائمنا اليومية وطهاتنا المبدعين!
+                                    </div>
+                                    <form method="post" action="login.php" class="signinForm mb-0">
+                                        <div class="row">
+                                            <div class="col-md-12 text-right">
+                                                <div class="form-group">
+                                                    <label for="email">البريد الإلكتروني</label>
+                                                    <input type="email" class="form-control" name="email" id="email" placeholder="أدخل بريدك الإلكتروني" required>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-12 text-right">
+                                                <div class="form-group">
+                                                    <label for="password">كلمة المرور</label>
+                                                    <input type="password" class="form-control" name="password" id="password" placeholder="أدخل كلمة المرور" required>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-12">
+                                                <button type="submit" id="submit-signin" class="btn btn--secondary btn--block">تسجيل الدخول</button>
+                                            </div>
+                                            <div class="col-md-12">
+                                                <!-- رسالة التنبيه -->
+                                                <div class="signin-result"></div>
+                                            </div>
+                                        </div>
+                                    </form>
+                                    <div class="signin-footer text-center mt-20">
+                                        <p>ليس لديك حساب؟ <a href="signup.php">إنشاء حساب جديد</a></p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="divider--shape-1down"></div>
+                </div>
+            </section>
+            <!-- #reservation1 end -->
+
+            <!-- Menu Grid
+============================================= -->
+        <section id="menuGrid" style="padding-bottom: 0px;">
+
+    <div class="container">
+        <div class="row clearfix">
+            <div class="col-xs-12 col-sm-12 col-md-8 col-md-offset-2">
+                        <div class="heading heading-1 mb-50 text--center">
+                            <p class="heading--subtitle">الجودة تلتقي بالأصالة</p>
+                            <h2 class="heading--title mb-0">حلوى تأسر الحواس</h2>
+                            <div class="divider--shape-4"></div>
+                            <p class="heading--desc">في سلورة الشهباء، نحرص على تقديم أفضل الحلويات الشرقية التي تمتزج فيها نكهات الماضي مع لمسات الحاضر. سواء كنتم تبحثون عن الحلاوة الغنية بالقشطة أو أي من أصنافنا الفاخرة، فإن كل قطعة تُصنع بحب وشغف لإرضاء أذواقكم.</p>
+                        </div>
+
+             <div class="signiture-img mb-100">
+                    <img class="center-block" src="assets/images/heading/signiture.png" alt="signiture">
+                </div> 
+            </div>
+            <!-- .col-md-8 end -->
+        </div>
+        <!-- .row end -->
+    </div>
+    <!-- .container end -->
+            <!-- footer#1
+            ============================================= -->
+            <footer id="footer" class="footer footer-1 text-center">
+                <div class="divider--shape-dark"></div>
+                <!-- Widget Section
+                ============================================= -->
+                <div class="footer--widget text--center">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-xs-12 col-sm-6 col-md-4">
+                                <div class="footer--widget-content">
+                                    <h3>تابعونا على وسائل التواصل</h3>
+                                    <div class="footer--social-icons">
+                                        <a href="https://www.instagram.com/alshahbaasweets?igsh=ZXY5bTlrdnFqaHNz" target="_blank">
+                                            <i class="fa fa-instagram"></i>
+                                        </a>
+                                        <a href="https://www.facebook.com/ALshahbaaSweets?mibextid=ZbWKwL" target="_blank">
+                                            <i class="fa fa-facebook"></i>
+                                        </a>
+
+                                    </div>
+                                    <!-- .social-icons end -->
+                                </div>
+                            </div>
+                            <!-- .col-md-4 end -->
+                            <div class="col-xs-12 col-sm-6 col-md-4">
+                                <div class="footer--widget-content">
+                                    <img class="mb-20" src="~/assets/images/logo/logo-light.png" alt="logo">
+                                    <p>في سلورة، نضع شغفنا في كل طبق نقدمه. استمتعوا بأفضل الحلويات والمأكولات التي تعكس أصالة الطابع الشرقي بلمسة عصرية. اجعلوا لحظاتكم الخاصة أكثر تميزًا معنا.</p>
+                                </div>
+                            </div>
+                            <!-- .col-md-3 end -->
+
+                            <div class="col-xs-12 col-sm-6 col-md-4">
+                                <div class="footer--widget-content">
+                                    <h3>ساعات عملنا</h3>
+                                    <div class="widget--newsletter" dir="rtl">
+                                        <form class="footer--social-newsletter">
+                                            <input type="text" name="working-hours" class="form-control" placeholder="السبت - الأربعاء: 8 صباحًا - 12 منتصف الليل" disabled>
+                                        </form>
+                                    </div>
+                                    <br>
+                                    <div class="widget--newsletter" dir="rtl">
+                                        <form class="footer--social-newsletter">
+                                            <input type="text" name="working-hours" class="form-control" placeholder="الخميس - الجمعة: 8 صباحًا - 1:00 صباحًا" disabled>
+                                        </form>
+                                    </div>
+                                    <!-- .widget end -->
+                                </div>
+                            </div>
+                            <!-- .col-md-3 end -->
+                        </div>
+                    </div>
+                    <!-- .container end -->
+                </div>
+                <!-- .footer-widget end -->
+                <!-- Copyrights
+                ============================================= -->
+                <div class="footer--copyright text-center">
+                    <div class="divider--shape-dark2"></div>
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-xs-12 col-sm-5 col-md-12">
+                                <div class="contact-info">
+
+                                    <span> <a href="tel:+962798002800" dir="ltr"> +962 7 9199 1212 </a></span> -
+                                    <span><a href="mailto:order@aghatisweets.com">order@aghatisweets.com</a></span>
+                                </div>
+                            </div>
+                            <div class="col-xs-12 col-sm-5 col-md-12">
+                                <span>&copy; جميع الحقوق محفوظة لسلورة الشهباء 2024</span>
+                            </div>
+
+                        </div>
+                    </div>
+                    <!-- .container end -->
+                </div>
+                <!-- .footer-copyright end -->
+            </footer>
+    </div>
+    <!-- #wrapper end -->
+    <!-- Footer Scripts
+    ============================================= -->
+    <script data-cfasync="false" src="../../cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
+    <script src="~/assets/js/jquery-2.2.4.min.js"></script>
+    <script src="~/assets/js/plugins.js"></script>
+    <script src="~/assets/js/functions.js"></script>
+    <!-- RS5.0 Core JS Files -->
+    <script src="~/assets/revolution/js/jquery.themepunch.tools.min838f.js?rev=5.0"></script>
+    <script src="~/assets/revolution/js/jquery.themepunch.revolution.min838f.js?rev=5.0"></script>
+    <script src="~/assets/revolution/js/extensions/revolution.extension.video.min.js"></script>
+    <script src="~/assets/revolution/js/extensions/revolution.extension.slideanims.min.js"></script>
+    <script src="~/assets/revolution/js/extensions/revolution.extension.actions.min.js"></script>
+    <script src="~/assets/revolution/js/extensions/revolution.extension.layeranimation.min.js"></script>
+    <script src="~/assets/revolution/js/extensions/revolution.extension.kenburn.min.js"></script>
+    <script src="~/assets/revolution/js/extensions/revolution.extension.navigation.min.js"></script>
+    <script src="~/assets/revolution/js/extensions/revolution.extension.migration.min.js"></script>
+    <script src="~/assets/revolution/js/extensions/revolution.extension.parallax.min.js"></script>
+    <!-- RS Configration JS Files -->
+    <script src="~/assets/js/rsconfig.js"></script>
+
+    <script async src="//www.instagram.com/embed.js"></script>
+
+
+    <!-- Facebook SDK Script -->
+    <div id="fb-root"></div>
+    <script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v15.0" nonce="XnIuYmj5"></script>
+
+    <script>
+        // Prevent immediate disappearance of the side navigation
+        document.querySelector('.module-side-nav').addEventListener('click', function (e) {
+            e.stopPropagation();
+        });
+
+        // Function to close the side nav
+        function closeSideNav() {
+            document.querySelector('.module-side-nav').style.display = 'none';
+        }
+    </script>
+</body>
+
+<!-- Mirrored from 7oroof.com/demos/steakin/homepage-arabic.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 07 Nov 2024 07:49:20 GMT -->
+</html>

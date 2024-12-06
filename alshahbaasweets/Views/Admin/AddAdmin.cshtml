@@ -1,0 +1,99 @@
+﻿@{
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<body>
+
+    <!-- Container fluid -->
+    <div class="container-fluid p-4">
+        <div class="row">
+            <div class="col-lg-12 col-md-12 col-12">
+                <!-- Page header -->
+                <div class="border-bottom pb-3 mb-3">
+                    <h1 class="mb-0 h2 fw-bold">Register Admin</h1>
+                    <!-- Breadcrumb -->
+                    <nav aria-label="breadcrumb">
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item"><a href=" @Url.Action("Users", "Admin")">Dashboard</a></li>
+                            <li class="breadcrumb-item"><a href="#">Users</a></li>
+                            <li class="breadcrumb-item active" aria-current="page">Register Admin</li>
+                        </ol>
+                    </nav>
+                </div>
+            </div>
+        </div>
+
+        <!-- Form to register a new admin -->
+        <!-- HTML Form to Register an Admin -->
+        <form id="registerAdminForm">
+            <div class="mb-3">
+                <label for="UserName">Admin Name</label>
+                <input type="text" class="form-control" id="UserName" name="UserName" required>
+            </div>
+            <div class="mb-3">
+                <label for="Email">Email</label>
+                <input type="email" class="form-control" id="Email" name="Email" required>
+            </div>
+            <div class="mb-3">
+                <label for="Password">Password</label>
+                <input type="password" class="form-control" id="Password" name="Password" required>
+            </div>
+            <div class="mb-3">
+                <label for="Phone">Phone</label>
+                <input type="text" class="form-control" id="Phone" name="Phone" required>
+            </div>
+            <button type="submit" class="btn btn-primary">Register Admin</button>
+        </form>
+
+    </div>
+</div>
+
+<!--raniascript-->
+<script>
+document.getElementById('registerAdminForm').addEventListener('submit', function (event) {
+    event.preventDefault(); // Prevent the form from submitting the default way
+
+    // Create a JSON object including all necessary fields
+    const adminData = {
+        userName: document.getElementById('UserName').value, // Make sure the field names match the API's expectations
+        email: document.getElementById('Email').value,
+        password: document.getElementById('Password').value,
+        phone: document.getElementById('Phone').value // New field for phone number
+    };
+
+    // Debugging: Check the form data being sent
+    console.log('Admin Data to be sent:', adminData);
+
+    // Send the data to the API
+    fetch('http://localhost:5097/api/Users/registerAdmin', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json' // Set content type to JSON
+        },
+        body: JSON.stringify(adminData) // Convert the object to JSON string
+    })
+    .then(response => {
+        if (!response.ok) {
+            throw new Error('Failed to register admin. Status: ' + response.status);
+        }
+        return response.json();
+    })
+    .then(data => {
+        alert('Admin registered successfully!');
+        console.log('Success:', data);
+        // Optionally, redirect to another page or reset the form
+        document.getElementById('registerAdminForm').reset();
+    })
+    .catch(error => {
+        console.error('Error registering admin:', error);
+        alert('Error registering admin: ' + error.message);
+    });
+});
+</script>
+
+</body>
+
+</html>

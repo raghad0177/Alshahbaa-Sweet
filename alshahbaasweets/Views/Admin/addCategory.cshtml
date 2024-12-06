@@ -1,0 +1,96 @@
+﻿@{
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<body>
+    <!-- Page Content -->
+    <section class="container-fluid p-4">
+        <div class="row">
+            <div class="col-lg-12 col-md-12 col-12">
+                <!-- Page header -->
+                <div class="border-bottom pb-3 mb-3 d-lg-flex align-items-center justify-content-between">
+                    <div>
+                        <h1 class="mb-0 h2 fw-bold">Add Categories</h1>
+                        <!-- Page Header -->
+                        <!-- Breadcrumb -->
+                        <nav aria-label="breadcrumb">
+                            <ol class="breadcrumb">
+                                <li class="breadcrumb-item">
+                                    <a href="@Url.Action("Users", "Admin")">Dashboard</a>
+                                </li>
+                                <li class="breadcrumb-item active" aria-current="page">
+                                    Add Categories
+                                </li>
+                            </ol>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Form Row -->
+        <div class="row">
+            <div class="col-lg-8 col-12">
+                <form id="form" onsubmit="addCategory(event)" enctype="multipart/form-data">
+                    <!-- Category Title -->
+                    <div class="mb-3">
+                        <label class="form-label">Category Title</label>
+                        <input type="text" class="form-control" placeholder="Enter Category Title" name="Name" required>
+                    </div>
+
+                    <!-- Category Description -->
+                    <div class="mb-3">
+                        <label class="form-label">Category Description</label>
+                        <input type="text" class="form-control" placeholder="Enter Category Description" name="Description" required>
+                    </div>
+
+                    <!-- Category Image -->
+                    <div class="mb-4">
+                        <label class="form-label">Category Image</label>
+                        <input type="file" class="form-control" name="file" required> <!-- Name should match the parameter in the controller -->
+                    </div>
+
+                    <!-- Submit Button -->
+                    <button class="btn btn-primary" type="submit">Create Category</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Inline JavaScript -->
+    <script>
+        async function addCategory(event) {
+            event.preventDefault(); // Prevent form submission
+
+            const url = "http://localhost:5097/api/categories"; // API Endpoint
+            const form = document.getElementById("form"); // Get the form element
+
+            // Extract form data, including file
+            const formData = new FormData(form);
+
+            try {
+                const response = await fetch(url, {
+                    method: "POST",
+                    body: formData, // Send FormData with the file
+                });
+
+                if (response.ok) {
+                    alert("Category added successfully!");
+                    window.location.href = "/Admin/Categories"; // Redirect to categories page
+                } else {
+                    const errorData = await response.json();
+                    console.error("Error adding category:", errorData);
+                    alert("Failed to add category: " + (errorData.message || "Unknown error"));
+                }
+            } catch (error) {
+                console.error("Error:", error);
+                alert("An error occurred while adding the category.");
+            }
+        }
+    </script>
+
+</body>
+</html>

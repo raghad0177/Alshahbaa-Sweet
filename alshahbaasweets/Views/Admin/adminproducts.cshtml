@@ -1,0 +1,265 @@
+﻿@{
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<body>
+    <section class="container-fluid p-4">
+        <div class="row">
+            <div class="col-12">
+                <div class="border-bottom pb-3 mb-3 d-lg-flex align-items-center justify-content-between">
+                    <div>
+                        <h1 class="mb-0 h2 fw-bold">Products</h1>
+                        <nav aria-label="breadcrumb">
+                            <ol class="breadcrumb">
+                                <li class="breadcrumb-item">
+                                    <a href="@Url.Action("Users", "Admin")">Dashboard</a>
+                                </li>
+                                <li class="breadcrumb-item active" aria-current="page">Products</li>
+                            </ol>
+                        </nav>
+                    </div>
+                    <div class="d-flex align-items-center gap-3">
+                        <a href="@Url.Action("Addproduct", "Admin")" class="btn btn-primary">Add Product</a>
+                        <div>
+                            <label for="cartVisibilityDropdown" class="form-label mb-0 me-2">Control Product Visibility:</label>
+                            <select id="cartVisibilityDropdown" class="form-select">
+                                <option value="true">Show Add to Cart</option>
+                                <option value="false">Hide Add to Cart</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="table-responsive">
+                    <table class="table table-bordered table-striped">
+                        <thead>
+                            <tr>
+                                <th>Product</th>
+                                <th>Pricing Options</th>
+                                <th>Visibility</th>
+                            </tr>
+                        </thead>
+                        <tbody id="productList">
+                            <!-- Dynamic product rows will be inserted here -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            fetch("http://localhost:5097/api/Products/GetProductsWithPricing")
+                .then(response => response.json())
+                .then(data => {
+                    const productList = document.getElementById("productList");
+                    productList.innerHTML = "";
+
+                    data.forEach(product => {
+                        const imageUrl = `http://localhost:5097${product.image || ""}`;
+                        let pricingOptionsHTML = "";
+
+                        if (product.pricingOptions && Array.isArray(product.pricingOptions)) {
+                            product.pricingOptions.forEach(option => {
+                                pricingOptionsHTML += `
+                                    <div class="d-flex align-items-center py-2">
+                                        <span>
+                                            <strong>Amount:</strong> ${option.amount || "N/A"}, <strong>Price:</strong> ${option.price || "N/A"} JD
+                                        </span>
+                                        <button class="btn btn-sm btn-outline-danger delete-btn" onclick="deletePricingOption(${option.shopId})">
+                                            <i class="fas fa-trash-alt"></i> <!-- Font Awesome delete icon -->
+                                        </button>
+                                    </div>
+                                `;
+                            });
+                        } else {
+                            pricingOptionsHTML = "<div>No pricing options available</div>";
+                        }
+
+                        const productHTML = `
+                            <tr class="table-row">
+                                <td>
+                                    <img src="${imageUrl}" alt="${product.name || "Product"}" style="width: 50px; height: auto;">
+                                    ${product.name || ""}
+                                </td>
+                                <td>${pricingOptionsHTML}</td>
+                                <td>
+                                    <div class="dropdown">
+                                        <button class="btn btn-sm btn-outline-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                            Actions
+                                        </button>
+                                        <ul class="dropdown-menu">
+                                            <li>
+                                                <a class="dropdown-item" href="#" onclick="toggleProductVisibility(${product.productId}, true)">
+                                                    Show
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a class="dropdown-item" href="#" onclick="toggleProductVisibility(${product.productId}, false)">
+                                                    Hide
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </td>
+                            </tr>
+                        `;
+                        productList.insertAdjacentHTML("beforeend", productHTML);
+                    });
+                })
+                .catch(error => {
+                    document.getElementById("productList").innerHTML = `
+                        <tr><td colspan="4">Error loading products.</td></tr>
+                    `;
+                    console.error("Failed to fetch products:", error);
+                });
+        });
+
+        function toggleProductVisibility(productId, show) {
+            const apiUrl = show
+                ? `http://localhost:5097/api/Shop/ShowProduct/${productId}`
+                : `http://localhost:5097/api/Shop/HideProduct/${productId}`;
+
+            fetch(apiUrl, { method: "PUT" })
+                .then(response => response.json())
+                .then(data => {
+                    alert(data.message);
+                    location.reload(); // Reload the page to reflect the changes
+                })
+                .catch(error => {
+                    console.error("Error toggling visibility:", error);
+                    alert("Failed to toggle visibility: " + error.message);
+                });
+        }
+
+        function deletePricingOption(shopId) {
+            if (!shopId) {
+                alert("Invalid shopId. Cannot delete pricing option.");
+                return;
+            }
+
+            if (!confirm("Are you sure you want to delete this pricing option?")) {
+                return;
+            }
+
+            fetch(`http://localhost:5097/api/Shop/DeletePricingOption/${shopId}`, { method: "DELETE" })
+                .then(response => response.json())
+                .then(data => {
+                    alert(data.message);
+                    location.reload(); // Reload the page to reflect the changes
+                })
+                .catch(error => {
+                    console.error("Error deleting pricing option:", error);
+                    alert("Failed to delete pricing option: " + error.message);
+                });
+        }
+    </script>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            // Reference to the dropdown element
+            const cartVisibilityDropdown = document.getElementById("cartVisibilityDropdown");
+
+            // Function to call the API when the dropdown value changes
+            cartVisibilityDropdown.addEventListener("change", function () {
+                // Get the selected value (true or false as a string)
+                const selectedValue = cartVisibilityDropdown.value;
+                const cartVisible = selectedValue === "true"; // Convert to boolean
+
+                // API endpoint
+                const endpoint = "http://localhost:5097/api/Products/UpdateAllCartVisibilityStatus";
+
+                // Prepare the request body
+                const requestBody = {
+                    CartVisible: cartVisible
+                };
+
+                // Make the PUT request
+                fetch(endpoint, {
+                    method: "PUT",
+                    headers: {
+                        "Content-Type": "application/json"
+                    },
+                    body: JSON.stringify(requestBody)
+                })
+                    .then(response => response.json())
+                    .then(data => {
+                        console.log("Response:", data);
+                        // Show a success message
+                        alert(data.message);
+                    })
+                    .catch(error => {
+                        console.error("Error updating cart visibility:", error);
+                        // Show an error message
+                        alert("Failed to update cart visibility. Please try again.");
+                    });
+            });
+        });
+    </script>
+    <!-- Include Font Awesome for the delete icon -->
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+
+    <style>
+        .delete-btn {
+            padding: 0.2rem 0.5rem;
+            border-radius: 50%;
+            font-size: 1rem;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            margin-left: 0.5rem;
+        }
+
+        .delete-btn:hover {
+            background-color: #f8d7da;
+            transform: scale(1.1);
+        }
+
+        .delete-btn i {
+            margin: 0;
+        }
+
+        .table .d-flex {
+            align-items: center;
+        }
+
+        .table-row:hover {
+            background-color: #f8f9fa;
+            cursor: pointer;
+        }
+
+        .table th, .table td {
+            vertical-align: middle;
+        }
+
+        .breadcrumb {
+            margin-bottom: 0;
+        }
+
+        .btn-group {
+            display: flex;
+            gap: 10px;
+        }
+
+        .dropdown-menu {
+            min-width: 120px;
+        }
+
+        /* Responsive layout adjustments */
+        @@media (max-width: 768px) {
+            .d-flex {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .table th, .table td {
+                padding: 10px;
+            }
+        }
+    </style>
+
+</body>
+
+</html>

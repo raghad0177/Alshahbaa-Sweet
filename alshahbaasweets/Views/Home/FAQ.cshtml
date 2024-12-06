@@ -1,0 +1,511 @@
+﻿@{
+    ViewData["Title"] = "FAQ Page";
+}
+<!DOCTYPE html>
+<html dir="rtl" lang="ar">
+
+
+<!-- Mirrored from 7oroof.com/demos/steakin/page-faqs.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 07 Nov 2024 07:49:22 GMT -->
+<head>
+    <!-- Document Meta
+    ============================================= -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!--IE Compatibility Meta-->
+    <meta name="author" content="zytheme" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="description" content="Elegant Restaurant & Cafe Html5 Template by zytheme">
+    <link href="~/assets/images/favicon/favicon.png" rel="icon">
+
+    <!-- Fonts
+    ============================================= -->
+    <link href="https://fonts.googleapis.com/css?family=Changa:200,300,400,500,600,700&amp;subset=arabic" rel="stylesheet">
+
+    <!-- Stylesheets
+    ============================================= -->
+    <link href="~/assets/css/external.css" rel="stylesheet">
+    <link href="~/assets/css/bootstrap.min.css" rel="stylesheet">
+    <link href="~/assets/css/style2.css" rel="stylesheet">
+    <link type="text/css" href="~/assets/css/style-rtl1.css" rel="stylesheet" />
+    <link type="text/css" href="~/assets/css/style-arabic.css" rel="stylesheet" />
+
+    <!-- RS5.0 Main Stylesheet -->
+    <link rel="stylesheet" type="text/css" href="~/assets/revolution/css/settings.css">
+    <link rel="stylesheet" type="text/css" href="~/assets/revolution/css/layers.css">
+    <link rel="stylesheet" type="text/css" href="~/assets/revolution/css/navigation.css">
+
+
+    <!-- HTML5 shim, for IE6-8 support of HTML5 elements. All other JS at the end of file. -->
+    <!--[if lt IE 9]>
+      <script src="assets/js/html5shiv.js"></script>
+      <script src="assets/js/respond.min.js"></script>
+    <![endif]-->
+    <!-- Document Title
+    ============================================= -->
+    <title>حلويات سلورة الشهباء</title>
+    <style>
+        /* Optional styling for clarity */
+    
+    </style>
+</head>
+
+<body>
+    <div class="preloader">
+        <div class="spinner">
+            <div class="bounce1"></div>
+            <div class="bounce2"></div>
+            <div class="bounce3"></div>
+        </div>
+    </div>
+    <!-- Document Wrapper
+    ============================================= -->
+    <div id="wrapper" class="wrapper clearfix">
+        <header id="navbar-spy" class="header header-1 header-transparent header-fixed">
+            <nav id="primary-menu" class="navbar navbar-fixed-top">
+                <div class="container">
+                    <!-- Brand and toggle get grouped for better mobile display -->
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse-1" aria-expanded="false">
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                        <a class="logo" href="index.html">
+                            <img class="logo-light" src="~/assets/images/logo/logo-light.png" alt="Steakin Logo" draggable="false">
+                            <img class="logo-dark" src="~/assets/images/logo/logo-dark.png" alt="Steakin Logo" draggable="false">
+                        </a>
+                    </div>
+
+                    <!-- Collect the nav links, forms, and other content for toggling -->
+                    <div class="collapse navbar-collapse pull-right" id="navbar-collapse-1">
+                        <ul class="nav navbar-nav nav-pos-right navbar-left">
+                            <!-- Home Menu -->
+                            <li class="has-dropdown mega-dropdown active">
+                                <a href="@Url.Action("Index", "Home")" class="dropdown-toggle menu-item">الرئيسية</a>
+                                <ul class="dropdown-menu">
+                                </ul>
+                                <!-- .mega-dropdown-menu end -->
+                            </li>
+
+                            <li class="has-dropdown">
+                                <a href="@Url.Action("AboutUs", "Home")" class="link-hover">من نحن</a>
+                            </li>
+                            <li class="has-dropdown">
+                                <a href="@Url.Action("Menu", "Home")" class="link-hover">المنيو</a>
+                            </li>
+
+                            <li class="has-dropdown">
+                                <a href="@Url.Action("Branches", "Home")" class="link-hover">فروعنا</a>
+                            </li>
+                            <li>
+                                <a href="@Url.Action("FAQ", "Home")" class="link-hover">الأسئلة الشائعة</a>
+                            </li>
+
+                        </ul>
+
+                        <div class="module module-reservation pull-left">
+                            <a href="@Url.Action("Login", "Home")" class="btn-popup btn-popup-theme" data-target="#reservationModule">تسجيل دخول</a>
+                        </div>
+                        <!-- Module Reservation (Same Modal for Sign In) -->
+
+
+                       
+
+                       
+                        <!-- Module Search -->
+                        <div class="module module-search pull-left">
+                            <div class="module-icon search-icon">
+                                <i class="fa fa-search"></i>
+                                <span class="title">بحث</span>
+                            </div>
+                            <div class="module-content module-fullscreen module--search-box">
+                                <div class="pos-vertical-center">
+                                    <div class="container">
+                                        <div class="row">
+                                            <div class="col-xs-12 col-sm-12 col-md-8 col-md-offset-2">
+                                                <form class="form-search">
+                                                    <input type="text" class="form-control" placeholder="اكتب كلمات البحث...">
+                                                    <button class="btn" type="button"><i class="fa fa-search"></i></button>
+                                                </form>
+                                                <!-- .form-search end -->
+                                            </div>
+                                            <!-- .col-md-8 end -->
+                                        </div>
+                                        <!-- .row end -->
+                                    </div>
+                                    <!-- .container end -->
+                                </div>
+                                <a class="module-cancel" href="#"><i class="fa fa-times"></i></a>
+                            </div>
+                        </div>
+                        <!-- .module-search end -->
+                        <!-- Module Side NAV -->
+                        <!-- Module Side NAV -->
+                        <div class="module module-side-nav pull-left">
+                            <div class="module-icon side-nav-icon">
+                                <i class="fa fa-bars"></i>
+                                <span class="title">Side Navigation</span>
+                            </div>
+                            <div class="module-content module-hamburger">
+                                <div class="hamburger-panel module-widgets" style="max-height: 80vh; overflow-y: auto;">
+                                    <!-- Facebook Feed -->
+                                    <div class="widget widget-facebook">
+                                        <div class="widget--title">
+                                            <h5>فيسبوك</h5>
+                                        </div>
+                                        <div class="widget--content">
+                                            <div class="fb-page"
+                                                 data-href="https://www.facebook.com/ALshahbaaSweets"
+                                                 data-tabs="timeline"
+                                                 data-width="500"
+                                                 data-height="300"
+                                                 data-small-header="false"
+                                                 data-adapt-container-width="true"
+                                                 data-hide-cover="false"
+                                                 data-show-facepile="true">
+                                            </div>
+                                            <div class="clearfix"></div>
+                                        </div>
+                                    </div>
+                                    <!-- .widget-facebook end -->
+                                    <!-- Instagram Feed -->
+                                    <div class="widget widget-instagram">
+                                        <div class="widget--title">
+                                            <h5>إنستجرام</h5>
+                                        </div>
+                                        <div class="widget--content" style="max-height: 80vh; overflow-y: auto; margin: auto;">
+                                            <blockquote class="instagram-media"
+                                                        data-instgrm-permalink="https://www.instagram.com/p/DC69YtXtavy/"
+                                                        data-instgrm-version="14"
+                                                        style="max-width: 100%; padding: 0; border: none; overflow: hidden; margin: auto;">
+                                            </blockquote>
+                                            <script async src="https://www.instagram.com/embed.js"></script>
+                                        </div>
+                                    </div>
+                                    <!-- .widget-instagram end -->
+                                    <!-- Tag Clouds -->
+                                    <div class="widget widget-tags">
+                                        <div class="widget--title">
+                                            <h5>الأوسمة</h5>
+                                        </div>
+                                        <div class="widget--content">
+                                            <a href="#">حلاوة الجبن</a>
+                                            <a href="#">حلاوة الجبن بالقشطة</a>
+                                            <a href="#">العروض الخاصة</a>
+                                            <a href="#">منتجاتنا</a>
+                                        </div>
+                                    </div>
+                                    <!-- .widget-tags end -->
+
+                                    <a class="module-cancel" href="#" onclick="event.stopPropagation(); closeSideNav();">
+                                        <i class="fa fa-times"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- /.module-side-nav -->
+                    </div>
+                    <!-- /.navbar-collapse -->
+                </div>
+                <!-- /.container-fluid -->
+            </nav>
+        </header>
+
+        <!-- Page Title #1
+        ============================================= -->
+        <section id="page-title" class="page-title bg-overlay bg-parallax bg-overlay-gradient">
+            <div class="bg-section">
+                <img src="~/assets/images/page-title/5.jpg" alt="Background" />
+            </div>
+            <div class="container">
+                <div class="row">
+                    <div class="col-xs-12 col-sm-12 col-md-12">
+                        <div class="title title-1 text-center">
+                            <div class="title--content">
+                                <div class="title--subtitle">حلويات سلورة الشهباء</div>
+                                <div class="title--heading">
+                                    <h1>الأسئلة الشائعة</h1>
+                                </div>
+                            </div>
+                            <div class="clearfix"></div>
+                         
+                            <div class="divider--shape-1down"></div>
+                        </div>
+                        <!-- .title end -->
+                    </div>
+                    <!-- .col-md-12 end -->
+                </div>
+                <!-- .row end -->
+            </div>
+            <!-- .container end -->
+        </section>
+        <!-- #page-title end -->
+        <!-- Accordion #1
+        ============================================= -->
+        <section id="faqs">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xs-12 col-sm-12 col-md-9">
+                        <div class="accordion accordion-1" id="accordion01">
+                            <!-- Panel 01 -->
+                            <div class="panel">
+                                <div class="panel--heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-parent="#accordion01" href="#collapse01-1">ما هي قصة حلويات سلورة الشهباء؟</a>
+                                </div>
+                                <div id="collapse01-1" class="panel--body panel-collapse collapse">
+                                    حلويات سلورة الشهباء هي الأصل في صناعة حلاوة الجبن منذ عام 1987. تأسست في المملكة الأردنية الهاشمية وتميزت باستخدام أفضل المواد الأولية مع الحفاظ على التقاليد الحرفية التي توارثتها عائلة سلورة من مدينة حماة في سوريا.
+                                </div>
+                            </div>
+
+                            <!-- Panel 02 -->
+                            <div class="panel">
+                                <div class="panel--heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-parent="#accordion01" href="#collapse01-2">ما الذي يميز حلاوة الجبن لدى سلورة الشهباء؟</a>
+                                </div>
+                                <div id="collapse01-2" class="panel--body panel-collapse collapse">
+                                    تتميز حلاوة الجبن لدى سلورة الشهباء باستخدام القشطة العربية الفاخرة وأجود المواد الأولية الصحية، مع دمج تكنولوجيا الإنتاج الحديثة والتقاليد الحرفية العريقة، مما يمنحها طعماً أصيلاً وفريداً.
+                                </div>
+                            </div>
+
+                            <!-- Panel 03 -->
+                            <div class="panel">
+                                <div class="panel--heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-parent="#accordion01" href="#collapse01-3">ما هي أبرز أنواع الحلويات التي تقدمها سلورة الشهباء؟</a>
+                                </div>
+                                <div id="collapse01-3" class="panel--body panel-collapse collapse">
+                                    بالإضافة إلى حلاوة الجبن، تقدم سلورة الشهباء مجموعة متنوعة من الحلويات الشرقية الفاخرة مثل الكنافة، المعمول، البقلاوة، وأصناف أخرى مستوحاة من التراث الحلبي والحموي.
+                                </div>
+                            </div>
+
+                            <!-- Panel 04 -->
+                            <div class="panel">
+                                <div class="panel--heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-parent="#accordion01" href="#collapse01-4">أين يقع محل سلورة الشهباء؟</a>
+                                </div>
+                                <div id="collapse01-4" class="panel--body panel-collapse collapse">
+                                    يقع محل سلورة الشهباء في المملكة الأردنية الهاشمية، ويعتبر الوجهة الأولى لعشاق حلاوة الجبن والحلويات الشرقية.
+                                </div>
+                            </div>
+
+                            <!-- Panel 05 -->
+                            <div class="panel">
+                                <div class="panel--heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-parent="#accordion01" href="#collapse01-5">كيف يتم الحفاظ على جودة المنتجات لدى سلورة الشهباء؟</a>
+                                </div>
+                                <div id="collapse01-5" class="panel--body panel-collapse collapse">
+                                    يتم الحفاظ على الجودة باستخدام أفضل المواد الخام وأكثرها صحة، واتباع تقنيات إنتاج حديثة مع الالتزام بالمعايير التقليدية التي ورثتها العائلة عبر الأجيال.
+                                </div>
+                            </div>
+
+                            <!-- Panel 06 -->
+                            <div class="panel">
+                                <div class="panel--heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-parent="#accordion01" href="#collapse01-6">هل يمكن طلب حلاوة الجبن للتوصيل؟</a>
+                                </div>
+                                <div id="collapse01-6" class="panel--body panel-collapse collapse">
+                                    نعم، يوفر محل سلورة الشهباء خدمة التوصيل لعشاق الحلويات في مختلف أنحاء المملكة الأردنية الهاشمية. يمكنكم التواصل مع المحل لمعرفة التفاصيل.
+                                </div>
+                            </div>
+                        </div>
+                        <!-- End .Accordion-->
+                    </div>
+                    <!-- .col-md-9 end -->
+                    <div class="col-xs-12 col-sm-12 col-md-3">
+                        <!-- Search -->
+                        <div class="widget widget-search">
+                            <div class="widget--content">
+                                <form class="form-search" onsubmit="return false;">
+                                    <div class="input-group">
+                                        <input id="search-input" type="text" class="form-control" placeholder="ابحث هنا" onkeyup="searchContent()">
+                                        <span class="input-group-btn">
+                                            <button class="btn" type="button" onclick="searchContent()">
+                                                <i class="fa fa-search"></i>
+                                            </button>
+                                        </span>
+                                    </div>
+                                </form>
+                          
+
+                         <!-- No results message -->
+                        <div id="no-results-message" style="display:none; text-align:center; color: red; margin-top: 2px;">
+            لايوجد نتائج للبحث
+                                 </div>
+                                </div>
+                            </div>
+
+                        <!-- .widget-search end -->
+                        <!-- Info -->
+                        <div class="widget widget-info">
+                            <div class="divider--shape-10up"></div>
+                            <div class="widget--content">
+                                <div class="info--title">
+                                    هل تحتاج إلى مساعدة؟
+                                </div>
+                                <div class="info--content">
+                                    إذا كانت لديك أي استفسارات أو ترغب بمشاركتنا رأيك، لا تتردد بالتواصل معنا. نحن هنا لمساعدتك!
+                                </div>
+                                <a class="btn btn--primary btn--inverse btn--rounded" href="@Url.Action("Branches", "Home")">تواصل معنا</a>
+                            </div>
+                            <div class="divider--shape-10down"></div>
+                        </div>
+                        <!-- .widget-info end -->
+                    </div>
+                    <!-- .col-md-3 end -->
+                </div>
+                <!-- .row end -->
+            </div>
+            <!-- .container end -->
+        </section>
+
+
+        <!-- footer#1
+        ============================================= -->
+        <footer id="footer" class="footer footer-1 text-center">
+            <div class="divider--shape-dark"></div>
+            <!-- Widget Section
+            ============================================= -->
+            <div class="footer--widget text--center">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-xs-12 col-sm-6 col-md-4">
+                            <div class="footer--widget-content">
+                                <h3>تابعونا على وسائل التواصل</h3>
+                                <div class="footer--social-icons">
+                                    <a href="https://www.instagram.com/alshahbaasweets?igsh=ZXY5bTlrdnFqaHNz" target="_blank">
+                                        <i class="fa fa-instagram"></i>
+                                    </a>
+                                    <a href="https://www.facebook.com/ALshahbaaSweets?mibextid=ZbWKwL" target="_blank">
+                                        <i class="fa fa-facebook"></i>
+                                    </a>
+
+                                </div>
+                                <!-- .social-icons end -->
+                            </div>
+                        </div>
+                        <!-- .col-md-4 end -->
+                        <div class="col-xs-12 col-sm-6 col-md-4">
+                            <div class="footer--widget-content">
+                                <img class="mb-20" src="~/assets/images/logo/logo-light.png" alt="logo">
+                                <p>في سلورة، نضع شغفنا في كل طبق نقدمه. استمتعوا بأفضل الحلويات والمأكولات التي تعكس أصالة الطابع الشرقي بلمسة عصرية. اجعلوا لحظاتكم الخاصة أكثر تميزًا معنا.</p>
+                            </div>
+                        </div>
+                        <!-- .col-md-3 end -->
+
+                        <div class="col-xs-12 col-sm-6 col-md-4">
+                            <div class="footer--widget-content">
+                                <h3>ساعات عملنا</h3>
+                                <div class="widget--newsletter" dir="rtl">
+                                    <form class="footer--social-newsletter">
+                                        <input type="text" name="working-hours" class="form-control" placeholder="السبت - الأربعاء: 8 صباحًا - 12 منتصف الليل" disabled>
+                                    </form>
+                                </div>
+                                <br>
+                                <div class="widget--newsletter" dir="rtl">
+                                    <form class="footer--social-newsletter">
+                                        <input type="text" name="working-hours" class="form-control" placeholder="الخميس - الجمعة: 8 صباحًا - 1:00 صباحًا" disabled>
+                                    </form>
+                                </div>
+                                <!-- .widget end -->
+                            </div>
+                        </div>
+                        <!-- .col-md-3 end -->
+                    </div>
+                </div>
+                <!-- .container end -->
+            </div>
+            <!-- .footer-widget end -->
+            <!-- Copyrights
+            ============================================= -->
+            <div class="footer--copyright text-center">
+                <div class="divider--shape-dark2"></div>
+                <div class="container">
+                    <div class="row">
+                        <div class="col-xs-12 col-sm-5 col-md-12">
+                            <div class="contact-info">
+
+                                <span> <a href="tel:+962798002800" dir="ltr"> +962 7 9199 1212 </a></span> -
+                                <span><a href="mailto:order@aghatisweets.com">order@aghatisweets.com</a></span>
+                            </div>
+                        </div>
+                        <div class="col-xs-12 col-sm-5 col-md-12">
+                            <span>&copy; جميع الحقوق محفوظة لسلورة الشهباء 2024</span>
+                        </div>
+
+                    </div>
+                </div>
+                <!-- .container end -->
+            </div>
+            <!-- .footer-copyright end -->
+        </footer>
+    </div>
+    <!-- #wrapper end -->
+    <!-- Footer Scripts
+    ============================================= -->
+    <script data-cfasync="false" src="../../cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
+    <script src="~/assets/js/jquery-2.2.4.min.js"></script>
+    <script src="~/assets/js/plugins.js"></script>
+    <script src="~/assets/js/functions.js"></script>
+    <!-- RS5.0 Core JS Files -->
+    <script src="~/assets/revolution/js/jquery.themepunch.tools.min838f.js?rev=5.0"></script>
+    <script src="~/assets/revolution/js/jquery.themepunch.revolution.min838f.js?rev=5.0"></script>
+    <script src="~/assets/revolution/js/extensions/revolution.extension.video.min.js"></script>
+    <script src="~/assets/revolution/js/extensions/revolution.extension.slideanims.min.js"></script>
+    <script src="~/assets/revolution/js/extensions/revolution.extension.actions.min.js"></script>
+    <script src="~/assets/revolution/js/extensions/revolution.extension.layeranimation.min.js"></script>
+    <script src="~/assets/revolution/js/extensions/revolution.extension.kenburn.min.js"></script>
+    <script src="~/assets/revolution/js/extensions/revolution.extension.navigation.min.js"></script>
+    <script src="~/assets/revolution/js/extensions/revolution.extension.migration.min.js"></script>
+    <script src="~/assets/revolution/js/extensions/revolution.extension.parallax.min.js"></script>
+    <!-- RS Configration JS Files -->
+    <script src="~/assets/js/rsconfig.js"></script>
+    <script async src="//www.instagram.com/embed.js"></script>
+
+
+    <!-- Facebook SDK Script -->
+<div id="fb-root"></div>
+<script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v15.0" nonce="XnIuYmj5"></script>
+
+    <script>
+        // Prevent immediate disappearance of the side navigation
+        document.querySelector('.module-side-nav').addEventListener('click', function (e) {
+            e.stopPropagation();
+        });
+
+        // Function to close the side nav
+        function closeSideNav() {
+            document.querySelector('.module-side-nav').style.display = 'none';
+        }
+    </script>
+
+    <script>
+        function searchContent() {
+            const query = document.getElementById('search-input').value.toLowerCase();
+            const panels = document.querySelectorAll('.panel');
+            let resultsFound = false;
+
+            panels.forEach(panel => {
+                const question = panel.querySelector('.panel--heading a').textContent.toLowerCase();
+                const answer = panel.querySelector('.panel--body').textContent.toLowerCase();
+
+                if (question.includes(query) || answer.includes(query)) {
+                    panel.style.display = ''; // Show matching panel
+                    resultsFound = true;
+                } else {
+                    panel.style.display = 'none'; // Hide non-matching panel
+                }
+            });
+
+            const noResultsMessage = document.getElementById('no-results-message');
+            if (resultsFound) {
+                noResultsMessage.style.display = 'none'; // Hide message if results are found
+            } else {
+                noResultsMessage.style.display = 'block'; // Show message if no results
+            }
+        }
+    </script>
+</body>
+
+
+<!-- Mirrored from 7oroof.com/demos/steakin/page-faqs.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 07 Nov 2024 07:49:22 GMT -->
+</html>

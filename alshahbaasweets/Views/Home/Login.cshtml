@@ -1,0 +1,417 @@
+﻿@{
+    ViewData["Title"] = "Login Page";
+}
+
+<!DOCTYPE html>
+<html dir="rtl" lang="ar">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="author" content="zytheme" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="description" content="Elegant Restaurant & Cafe Html5 Template by zytheme">
+    <link href="~/assets/images/favicon/favicon.png" rel="icon">
+    <link href="https://fonts.googleapis.com/css?family=Changa:200,300,400,500,600,700&amp;subset=arabic" rel="stylesheet">
+    <link href="~/assets/css/external.css" rel="stylesheet">
+    <link href="~/assets/css/bootstrap.min.css" rel="stylesheet">
+    <link href="~/assets/css/style2.css" rel="stylesheet">
+    <link type="text/css" href="~/assets/css/style-rtl1.css" rel="stylesheet" />
+    <link type="text/css" href="~/assets/css/style-arabic.css" rel="stylesheet" />
+    <!-- SweetAlert2 CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
+
+    <!-- SweetAlert2 JavaScript -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+    <title>تسجيل الدخول - حلويات سلورة</title>
+    <style>
+        section {
+            padding-top: 0px;
+            padding-bottom: 0px;
+            overflow: hidden;
+        }
+
+        .page-title .title {
+            padding: 110px 0px;
+            position: relative;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="wrapper" class="wrapper clearfix">
+        <header id="navbar-spy" class="header header-1 header-transparent header-fixed">
+            <nav id="primary-menu" class="navbar navbar-fixed-top">
+                <div class="container">
+                    <div class="navbar-header">
+                        <a class="logo" href="@Url.Action("Index", "Home")">
+                            <img class="logo-light" src="~/assets/images/logo/logo-light.png" alt="Logo">
+                            <img class="logo-dark" src="~/assets/images/logo/logo-dark.png" alt="Logo">
+                        </a>
+                    </div>
+                    <div class="collapse navbar-collapse pull-right" id="navbar-collapse-1">
+                        <ul class="nav navbar-nav nav-pos-right navbar-left">
+                            <li><a href="@Url.Action("Index", "Home")">الرئيسية</a></li>
+                            <li><a href="@Url.Action("AboutUs", "Home")">من نحن</a></li>
+                            <li><a href="@Url.Action("Menu", "Home")">المنيو</a></li>
+                            <li><a href="@Url.Action("Branches", "Home")">فروعنا</a></li>
+                            <li><a href="@Url.Action("FAQ", "Home")">الأسئلة الشائعة</a></li>
+                        </ul>
+
+                        <div class="module module-reservation pull-left">
+                            <a href="@Url.Action("Login", "Home")" class="btn-popup btn-popup-theme" data-target="#reservationModule">تسجيل دخول</a>
+                        </div>
+                        <!-- Module Reservation (Same Modal for Sign In) -->
+                        <!-- Module Search -->
+                      <div class="module module-search pull-left">
+    <div class="module-icon search-icon">
+        <i class="fa fa-search"></i>
+        <span class="title">بحث</span>
+    </div>
+    <div class="module-content module-fullscreen module--search-box">
+        <div class="pos-vertical-center">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xs-12 col-sm-12 col-md-8 col-md-offset-2">
+                        <form class="form-search">
+                            <input type="text" class="form-control" id="search-input" placeholder="اكتب كلمات البحث...">
+                            <button class="btn" type="button" onclick="searchWord()"><i class="fa fa-search"></i></button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <a class="module-cancel" href="#"><i class="fa fa-times"></i></a>
+    </div>
+</div>
+                        <!-- .module-search end -->
+                        <!-- Module Side NAV -->
+                        <div class="module module-side-nav pull-left">
+                            <div class="module-icon side-nav-icon">
+                                <i class="fa fa-bars"></i>
+                                <span class="title">Side Navigation</span>
+                            </div>
+                            <div class="module-content module-hamburger">
+                                <div class="hamburger-panel module-widgets" style="max-height: 80vh; overflow-y: auto;">
+                                    <!-- Facebook Feed -->
+                                    <div class="widget widget-facebook">
+                                        <div class="widget--title">
+                                            <h5>فيسبوك</h5>
+                                        </div>
+                                        <div class="widget--content">
+                                            <div class="fb-page"
+                                                 data-href="https://www.facebook.com/ALshahbaaSweets"
+                                                 data-tabs="timeline"
+                                                 data-width="500"
+                                                 data-height="300"
+                                                 data-small-header="false"
+                                                 data-adapt-container-width="true"
+                                                 data-hide-cover="false"
+                                                 data-show-facepile="true">
+                                            </div>
+                                            <div class="clearfix"></div>
+                                        </div>
+                                    </div>
+                                    <!-- .widget-facebook end -->
+                                    <!-- Instagram Feed -->
+                                    <div class="widget widget-instagram">
+                                        <div class="widget--title">
+                                            <h5>إنستجرام</h5>
+                                        </div>
+                                        <div class="widget--content" style="max-height: 80vh; overflow-y: auto; margin: auto;">
+                                            <blockquote class="instagram-media"
+                                                        data-instgrm-permalink="https://www.instagram.com/p/DC69YtXtavy/"
+                                                        data-instgrm-version="14"
+                                                        style="max-width: 100%; padding: 0; border: none; overflow: hidden; margin: auto;">
+                                            </blockquote>
+                                            <script async src="https://www.instagram.com/embed.js"></script>
+                                        </div>
+                                    </div>
+                                    <!-- .widget-instagram end -->
+                                    <!-- Tag Clouds -->
+                                    <div class="widget widget-tags">
+                                        <div class="widget--title">
+                                            <h5>الأوسمة</h5>
+                                        </div>
+                                        <div class="widget--content">
+                                            <a href="#">حلاوة الجبن</a>
+                                            <a href="#">حلاوة الجبن بالقشطة</a>
+                                            <a href="#">العروض الخاصة</a>
+                                            <a href="#">منتجاتنا</a>
+                                        </div>
+                                    </div>
+                                    <!-- .widget-tags end -->
+
+                                    <a class="module-cancel" href="#" onclick="event.stopPropagation(); closeSideNav();">
+                                        <i class="fa fa-times"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- /.module-side-nav -->
+                    </div>
+                    <!-- /.navbar-collapse -->
+                </div>
+                <!-- /.container-fluid -->
+            </nav>
+        </header>
+
+        <section id="page-title" class="page-title bg-overlay bg-parallax bg-overlay-gradient">
+            <div class="bg-section">
+                <img src="~/assets/images/page-title/10.jpg" alt="Background">
+            </div>
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="title title-1 text-center">
+                            <div class="reservation-form mb-30 text-center">
+                                <div class="reservation-bordered">
+                                    <div class="heading heading-1 text-center">
+                                        <p class="heading--subtitle">تسجيل الدخول</p>
+                                        <h2 class="heading--title">مرحباً بعودتك إلى سلورة</h2>
+                                        <div class="divider--shape-4"></div>
+                                    </div>
+                                    <div class="reservation--dec">
+                                        قم بتسجيل الدخول إلى حسابك للاستمتاع بتجربة مميزة مع قوائمنا اليومية وطهاتنا المبدعين!
+                                    </div>
+                                    <form method="post" id="loginForm" class="signinForm mb-0">
+                                        <div class="row">
+                                            <div class="col-md-12 text-right">
+                                                <div class="form-group">
+                                                    <label for="email">البريد الإلكتروني</label>
+                                                    <input type="email" class="form-control" name="email" id="email" placeholder="أدخل بريدك الإلكتروني" required />
+                                                </div>
+                                            </div>
+                                            <div class="col-md-12 text-right">
+                                                <div class="form-group">
+                                                    <label for="password">كلمة المرور</label>
+                                                    <input type="password" class="form-control" name="password" id="password" placeholder="أدخل كلمة المرور" required />
+                                                </div>
+                                            </div>
+                                            <div class="col-md-12">
+                                                <button type="submit" id="submit-signin" class="btn btn--secondary btn--block">تسجيل الدخول</button>
+                                            </div>
+                                            <div id="userType">
+                                                <input type="radio" id="customer" name="userType" value="customer" checked>
+                                                <label for="customer">عميل</label>
+                                                <input type="radio" id="admin" name="userType" value="admin">
+                                                <label for="admin">مدير</label>
+                                            </div>
+                                            <div class="col-md-12">
+                                                <div class="signin-result"></div>
+                                            </div>
+                                        </div>
+                                    </form>
+                                    <div class="signin-footer text-center mt-20">
+                                        <p>ليس لديك حساب؟ <a href="@Url.Action("Register", "Home")">إنشاء حساب جديد</a></p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- .title end -->
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- footer#1
+        ============================================= -->
+        <footer id="footer" class="footer footer-1 text-center">
+            <div class="divider--shape-dark"></div>
+            <!-- Widget Section
+            ============================================= -->
+            <div class="footer--widget text--center">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-xs-12 col-sm-6 col-md-4">
+                            <div class="footer--widget-content">
+                                <h3>تابعونا على وسائل التواصل</h3>
+                                <div class="footer--social-icons">
+                                    <a href="https://www.instagram.com/alshahbaasweets?igsh=ZXY5bTlrdnFqaHNz" target="_blank">
+                                        <i class="fa fa-instagram"></i>
+                                    </a>
+                                    <a href="https://www.facebook.com/ALshahbaaSweets?mibextid=ZbWKwL" target="_blank">
+                                        <i class="fa fa-facebook"></i>
+                                    </a>
+
+                                </div>
+                                <!-- .social-icons end -->
+                            </div>
+                        </div>
+                        <!-- .col-md-4 end -->
+                        <div class="col-xs-12 col-sm-6 col-md-4">
+                            <div class="footer--widget-content">
+                                <img class="mb-20" src="~/assets/images/logo/logo-light.png" alt="logo">
+                                <p>في سلورة، نضع شغفنا في كل طبق نقدمه. استمتعوا بأفضل الحلويات والمأكولات التي تعكس أصالة الطابع الشرقي بلمسة عصرية. اجعلوا لحظاتكم الخاصة أكثر تميزًا معنا.</p>
+                            </div>
+                        </div>
+                        <!-- .col-md-3 end -->
+
+                        <div class="col-xs-12 col-sm-6 col-md-4">
+                            <div class="footer--widget-content">
+                                <h3>ساعات عملنا</h3>
+                                <div class="widget--newsletter" dir="rtl">
+                                    <form class="footer--social-newsletter">
+                                        <input type="text" name="working-hours" class="form-control" placeholder="السبت - الأربعاء: 8 صباحًا - 12 منتصف الليل" disabled>
+                                    </form>
+                                </div>
+                                <br>
+                                <div class="widget--newsletter" dir="rtl">
+                                    <form class="footer--social-newsletter">
+                                        <input type="text" name="working-hours" class="form-control" placeholder="الخميس - الجمعة: 8 صباحًا - 1:00 صباحًا" disabled>
+                                    </form>
+                                </div>
+                                <!-- .widget end -->
+                            </div>
+                        </div>
+                        <!-- .col-md-3 end -->
+                    </div>
+                </div>
+                <!-- .container end -->
+            </div>
+            <!-- .footer-widget end -->
+            <!-- Copyrights
+            ============================================= -->
+            <div class="footer--copyright text-center">
+                <div class="divider--shape-dark2"></div>
+                <div class="container">
+                    <div class="row">
+                        <div class="col-xs-12 col-sm-5 col-md-12">
+                            <div class="contact-info">
+
+                                <span> <a href="tel:+962798002800" dir="ltr"> +962 7 9199 1212 </a></span> -
+                                <span><a href="mailto:order@aghatisweets.com">order@aghatisweets.com</a></span>
+                            </div>
+                        </div>
+                        <div class="col-xs-12 col-sm-5 col-md-12">
+                            <span>&copy; جميع الحقوق محفوظة لسلورة الشهباء 2024</span>
+                        </div>
+
+                    </div>
+                </div>
+                <!-- .container end -->
+            </div>
+            <!-- .footer-copyright end -->
+        </footer>
+    </div>
+    <!-- #wrapper end -->
+    <!-- Footer Scripts
+    ============================================= -->
+    <script data-cfasync="false" src="../../cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
+    <script src="~/assets/js/jquery-2.2.4.min.js"></script>
+    <script src="~/assets/js/plugins.js"></script>
+    <script src="~/assets/js/functions.js"></script>
+    <!-- RS5.0 Core JS Files -->
+    <script src="~/assets/revolution/js/jquery.themepunch.tools.min838f.js?rev=5.0"></script>
+    <script src="~/assets/revolution/js/jquery.themepunch.revolution.min838f.js?rev=5.0"></script>
+    <script src="~/assets/revolution/js/extensions/revolution.extension.video.min.js"></script>
+    <script src="~/assets/revolution/js/extensions/revolution.extension.slideanims.min.js"></script>
+    <script src="~/assets/revolution/js/extensions/revolution.extension.actions.min.js"></script>
+    <script src="~/assets/revolution/js/extensions/revolution.extension.layeranimation.min.js"></script>
+    <script src="~/assets/revolution/js/extensions/revolution.extension.kenburn.min.js"></script>
+    <script src="~/assets/revolution/js/extensions/revolution.extension.navigation.min.js"></script>
+    <script src="~/assets/revolution/js/extensions/revolution.extension.migration.min.js"></script>
+    <script src="~/assets/revolution/js/extensions/revolution.extension.parallax.min.js"></script>
+    <!-- RS Configration JS Files -->
+    <script src="~/assets/js/rsconfig.js"></script>
+
+    <script async src="//www.instagram.com/embed.js"></script>
+
+
+    <!-- Facebook SDK Script -->
+<div id="fb-root"></div>
+<script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v15.0" nonce="XnIuYmj5"></script>
+
+    <script>
+        // Prevent immediate disappearance of the side navigation
+        document.querySelector('.module-side-nav').addEventListener('click', function (e) {
+            e.stopPropagation();
+        });
+
+        // Function to close the side nav
+        function closeSideNav() {
+            document.querySelector('.module-side-nav').style.display = 'none';
+        }
+    </script>
+
+    <script>
+        function loginUser(email, password, userType) {
+            const endpoint = userType === "admin"
+                ? "/api/Users/loginAdmin" // Admin login endpoint
+                : "/api/Users/loginCustomer"; // Customer login endpoint
+
+            fetch(endpoint, {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ email, password }),
+            })
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error("فشل تسجيل الدخول. البريد الإلكتروني أو كلمة المرور غير صحيحة.");
+                    }
+                    return response.json();
+                })
+                .then(data => {
+                    console.log("Data received:", data); // Check what the server returns
+
+                    // Check if the token and userID are in the response correctly
+                    if (data && data.token && data.userID) {
+                        localStorage.setItem("jwtToken", data.token);
+                        localStorage.setItem("userId", data.userID); // Store userId in localStorage
+                        //alert("تم تسجيل الدخول بنجاح!"); // Success alert
+                        const redirectUrl = userType === "admin" ? "/admin/users" : "/customer/shop";
+                        window.location.href = redirectUrl;
+                    } else {
+                        throw new Error("الرد لم يتضمن رمزًا صالحًا أو معرّف المستخدم.");
+                    }
+                })
+                .catch(error => {
+                    console.error("Error:", error); // Log the error details to the console
+                    alert("خطأ: " + error.message); // Error alert
+                });
+        }
+
+        // Event Listener for Submit Button
+        document.getElementById('submit-signin').addEventListener('click', (event) => {
+            event.preventDefault(); // Prevent default form submission
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+            const userType = document.querySelector('input[name="userType"]:checked').value;
+
+            if (email && password) {
+                loginUser(email, password, userType);
+            } else {
+                alert("يرجى ملء جميع الحقول."); // Validation alert
+            }
+        });
+    </script>
+
+    <script>
+        function searchWord() {
+            const query = document.getElementById('search-input').value.trim();
+
+            if (query === "") {
+                alert("Please enter a word to search."); // Alert for empty input
+                return;
+            }
+
+            // Get all the text nodes in the page and highlight occurrences of the query
+            const bodyText = document.body.innerHTML;
+
+            // Regex to find the word globally, ignoring case
+            const regex = new RegExp(query, 'gi');
+
+            // Highlight all occurrences
+            const highlightedText = bodyText.replace(regex, (match) => {
+                return `<span style="background-color: yellow">${match}</span>`;
+            });
+
+            // Update the page content with highlighted text
+            document.body.innerHTML = highlightedText;
+        }
+    </script>
+
+</body>
+
+</html>

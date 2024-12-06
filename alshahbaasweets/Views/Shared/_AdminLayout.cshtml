@@ -1,0 +1,311 @@
+﻿@{
+    ViewData["Title"] = "admin dashboard";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <meta name="author" content="Codescandy">
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="http://www.googletagmanager.com/gtag/js?id=G-M8S4MT3EYG"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'G-M8S4MT3EYG');
+    </script>
+
+
+
+
+    <script>
+        // Render blocking JS:
+        if (localStorage.theme) document.documentElement.setAttribute("data-theme", localStorage.theme);
+    </script>
+
+    <!-- Favicon icon-->
+    <link rel="shortcut icon" type="image/x-icon"
+          href="https://codescandy.com/geeks-bootstrap-5/assets2/images/favicon/favicon.ico">
+
+
+    <!-- Libs CSS -->
+    <link href="~/assets2/fonts/feather/feather.css" rel="stylesheet">
+    <link href="~/assets2/libs/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet" />
+    <link href="~/assets2/libs/%40mdi/font/css/materialdesignicons.min.css" rel="stylesheet" />
+    <link href="~/assets2/libs/simplebar/dist/simplebar.min.css" rel="stylesheet">
+
+
+
+
+    <!-- Theme CSS -->
+    <link rel="stylesheet" href="~/assets2/css/theme.min.css">
+    <title>حلويات سلورة الشهباء</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+</head>
+
+<body>
+    <!-- Wrapper -->
+    <div id="db-wrapper">
+        <!-- navbar vertical -->
+        <!-- navbar vertical -->
+        <nav class="navbar-vertical navbar">
+            <div class="vh-100" data-simplebar>
+                <!-- Brand logo -->
+                <a class="navbar-brand" href="https://codescandy.com/geeks-bootstrap-5/index.html">
+                </a>
+                <!-- Navbar nav -->
+                <ul class="navbar-nav flex-column" id="sideNavbar">
+
+
+
+                    <!-- Nav item User -->
+                    <li class="nav-item">
+                        <a class="nav-link" href="@Url.Action("Users", "Admin")">
+                            <i class="fas fa-user" style="font-size:24px"></i> User
+                        </a>
+                    </li>
+
+                    <!-- Nav item: Add Admin -->
+                    <li class="nav-item">
+                        <a class="nav-link" href="@Url.Action("AddAdmin", "Admin")">
+                            <i class="fas fa-user" style="font-size:24px"></i> Add Admin
+                        </a>
+                    </li>
+
+                    <!-- Nav item: Orders -->
+                    <li class="nav-item">
+                        <a class="nav-link" href="@Url.Action("Order", "Admin")">
+                            <i class="fas fa-receipt" style="font-size:24px"></i>&nbsp;&nbsp;Orders
+                        </a>
+                    </li>
+
+
+                    <!-- Nav item Categories -->
+                    <li class="nav-item">
+                        <a class="nav-link   collapsed " href="#" data-bs-toggle="collapse"
+                           data-bs-target="#navDashboard" aria-expanded="false" aria-controls="navDashboard">
+                            <i class="fas fa-th-large" style="font-size:24px"></i>
+                            &nbsp; Categories
+                        </a>
+                        <div id="navDashboard" class="collapse " data-bs-parent="#sideNavbar">
+                            <ul class="nav flex-column">
+                                <li class="nav-item ">
+                                    <a class="nav-link " href="@Url.Action("addCategory", "Admin")">
+                                        Add Category
+                                    </a>
+                                </li>
+                                <!-- Nav item -->
+                                <li class="nav-item ">
+                                    <a class="nav-link " href="@Url.Action("categories", "Admin")">
+                                        View ALL Categories
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </li>
+
+
+                    <!-- Nav item Products -->
+
+                    <li class="nav-item">
+                        <a class="nav-link   collapsed " href="#" data-bs-toggle="collapse"
+                           data-bs-target="#navDashboard" aria-expanded="false" aria-controls="navDashboard">
+                            <i class="fas fa-box" style="font-size:24px"></i>
+                            &nbsp; Products
+                        </a>
+                        <div id="navDashboard" class="collapse " data-bs-parent="#sideNavbar">
+                            <ul class="nav flex-column">
+                                <li class="nav-item ">
+                                    <a class="nav-link " href="@Url.Action("Addproduct", "Admin")">
+                                        Add Products
+                                    </a>
+                                </li>
+                                <!-- Nav item -->
+                                <li class="nav-item ">
+                                    <a class="nav-link " href="@Url.Action("adminproducts", "Admin")">
+                                        View ALL Products
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </li>
+
+
+                    <!-- Nav item Menu Products -->
+                    <li class="nav-item">
+                        <a class="nav-link   collapsed " href="#" data-bs-toggle="collapse"
+                           data-bs-target="#navDashboard" aria-expanded="false" aria-controls="navDashboard">
+                            <i class="fas fa-box" style="font-size:24px"></i>
+                            &nbsp; Menu
+                        </a>
+                        <div id="navDashboard" class="collapse " data-bs-parent="#sideNavbar">
+                            <ul class="nav flex-column">
+                                <li class="nav-item ">
+                                    <a class="nav-link " href=" @Url.Action("AddMenuProducts", "Admin")">
+                                        Add Menu Products
+                                    </a>
+                                </li>
+                                <!-- Nav item -->
+                                <li class="nav-item ">
+                                    <a class="nav-link " href=" @Url.Action("MenuProducts", "Admin")">
+                                        View ALL Menu Products
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </li>
+
+
+                    <!-- Nav item Coupons -->
+                    <li class="nav-item">
+                        <a class="nav-link " href=" @Url.Action("CouponManagement", "Admin")">
+                            <i class="fas fa-tags" style="font-size:24px"></i>
+                            &nbsp; Coupons
+                        </a>
+                    </li>
+                    <!-- Nav item  Chat-->
+                </ul>
+            </div>
+        </nav>
+
+
+
+        <!-- Page Content -->
+        <main id="page-content">
+            <div class="header">
+                <!-- navbar -->
+                <nav class="navbar-default navbar navbar-expand-lg">
+                    <a id="nav-toggle" href="#">
+                        <i class="fe fe-menu"></i>
+                    </a>
+                    <div class="ms-lg-3 d-none d-md-none d-lg-block">
+                        <!-- Form -->
+                        <form class="d-flex align-items-center">
+                            <span class="position-absolute ps-3 search-icon">
+                                <i class="fe fe-search"></i>
+                            </span>
+                            <input type="search" class="form-control ps-6" placeholder="Search Entire Dashboard">
+                        </form>
+                    </div>
+                    <!--Navbar nav -->
+                    <div class="ms-auto d-flex">
+                        <ul class="navbar-nav navbar-right-wrap ms-2 d-flex nav-top-wrap">
+                            <li class="dropdown ms-2">
+                                <a class="rounded-circle" href="#" role="button" id="dropdownUser"
+                                   data-bs-toggle="dropdown" aria-expanded="false">
+                                    <div class="avatar avatar-md avatar-indicators avatar-online">
+                                        <img alt="avatar" src="~/assets2/images/avatar/avatar-1.jpg"
+                                             class="rounded-circle">
+                                    </div>
+                                </a>
+                                <div class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownUser">
+                                    <div class="dropdown-item">
+                                        <div class="d-flex">
+                                            <div class="avatar avatar-md avatar-indicators avatar-online">
+                                                <img alt="avatar" src="~/assets2/images/avatar/avatar-1.jpg"
+                                                     class="rounded-circle">
+                                            </div>
+                                            <div class="ms-3 lh-1">
+                                                <h5 class="mb-1">Annette Black</h5>
+                                                <p class="mb-0 text-muted">annette@geeksui.com</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="dropdown-divider"></div>
+                                    <ul class="list-unstyled">
+                                        <li class="dropdown-submenu dropstart-lg">
+                                            <a class="dropdown-item dropdown-list-group-item dropdown-toggle" href="#">
+                                                <i class="fe fe-circle me-2"></i> Status
+                                            </a>
+                                            <ul class="dropdown-menu">
+                                                <li>
+                                                    <a class="dropdown-item" href="#">
+                                                        <span class="badge-dot bg-success me-2"></span> Online
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <a class="dropdown-item" href="#">
+                                                        <span class="badge-dot bg-secondary me-2"></span> Offline
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <a class="dropdown-item" href="#">
+                                                        <span class="badge-dot bg-warning me-2"></span> Away
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <a class="dropdown-item" href="#">
+                                                        <span class="badge-dot bg-danger me-2"></span> Busy
+                                                    </a>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                        <li>
+                                            <a class="dropdown-item"
+                                               href="https://codescandy.com/geeks-bootstrap-5/pages/profile-edit.html">
+                                                <i class="fe fe-user me-2"></i> Profile
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a class="dropdown-item"
+                                               href="https://codescandy.com/geeks-bootstrap-5/pages/student-subscriptions.html">
+                                                <i class="fe fe-star me-2"></i> Subscription
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a class="dropdown-item" href="#">
+                                                <i class="fe fe-settings me-2"></i> Settings
+                                            </a>
+                                        </li>
+                                    </ul>
+                                    <div class="dropdown-divider"></div>
+                                    <ul class="list-unstyled">
+                                        <li>
+                                            <a class="dropdown-item"
+                                               href="https://codescandy.com/geeks-bootstrap-5/index.html">
+                                                <i class="fe fe-power me-2"></i> Sign Out
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </nav>
+            </div>
+
+            <div class="container">
+                @RenderBody() <!-- Renders the content of each view -->
+            </div>
+        </main>
+
+       
+    </div>
+
+            <!-- Scripts -->
+            <!-- Libs JS -->
+            <script src="~/assets2/libs/jquery/dist/jquery.min.js"></script>
+            <script src="~/assets2/libs/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+            <script src="~/assets2/libs/simplebar/dist/simplebar.min.js"></script>
+
+
+            <!-- Theme JS -->
+            <script src="~/assets2/js/theme.min.js"></script>
+
+    @RenderSection("Scripts", required: false) <!-- Section for additional scripts -->
+
+
+</body>
+
+
+</html>

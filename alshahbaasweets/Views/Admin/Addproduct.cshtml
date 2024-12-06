@@ -1,0 +1,120 @@
+﻿@{
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<body>
+    <!-- Container fluid -->
+    <div class="container-fluid p-4">
+        <div class="row">
+            <div class="col-lg-12 col-md-12 col-12">
+                <!-- Page header -->
+                <div class="border-bottom pb-3 mb-3">
+                    <h1 class="mb-0 h2 fw-bold">اضافة الكميات</h1>
+                    <!-- Breadcrumb -->
+                    <nav aria-label="breadcrumb">
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item">
+                                <a href="@Url.Action("Users", "Admin")">Dashboard</a>
+                            </li>
+                            <li class="breadcrumb-item active" aria-current="page">Add Product</li>
+                        </ol>
+                    </nav>
+                </div>
+            </div>
+        </div>
+        <!-- Form to add new product -->
+        <form id="shopForm" enctype="multipart/form-data">
+            <div class="mb-3">
+                <label for="Amount">Amount</label>
+                <input type="text" id="amount" class="form-control" required>
+            </div>
+
+            <div class="mb-3">
+                <label for="price">Price</label>
+                <input type="number" id="price" class="form-control" step="any" required>
+            </div>
+
+            <div class="mb-3">
+                <label for="productId">Select a product</label>
+                <select id="productId" class="form-control" required>
+                    <option value="">Select a product</option>
+                </select>
+            </div>
+
+            <button type="submit" class="btn btn-success">Save Product</button>
+        </form>
+    </div>
+
+    <script>
+        // Function to load products into the dropdown
+        async function loadProducts() {
+            try {
+                const response = await fetch('http://localhost:5097/api/Shop/GetAllProducts');
+                if (!response.ok) {
+                    throw new Error("Failed to fetch products.");
+                }
+
+                const products = await response.json(); // Correctly parsing the response as a direct array
+
+                // Populate the dropdown with product options
+                const productDropdown = document.getElementById('productId');
+                productDropdown.innerHTML = '<option value="">Select a product</option>'; // Clear and reset dropdown
+
+                products.forEach(product => {
+                    const option = document.createElement('option');
+                    option.value = product.productId;
+                    option.textContent = product.name;
+                    productDropdown.appendChild(option);
+                });
+            } catch (error) {
+                console.error("Error fetching products:", error);
+                alert("Failed to load products. Please check your server.");
+            }
+        }
+
+        // Function to handle the form submission
+        document.getElementById('shopForm').addEventListener('submit', async function (e) {
+            e.preventDefault();
+
+            const productId = document.getElementById('productId').value;
+            const amount = document.getElementById('amount').value;
+            const price = parseFloat(document.getElementById('price').value);
+
+            // Validation
+            if (!productId || !amount || isNaN(price) || price <= 0) {
+                alert("Please fill out all fields correctly.");
+                return;
+            }
+
+            try {
+                // POST request to create a shop product
+                const response = await fetch(`http://localhost:5097/api/Shop/PostProducts?productId=${productId}&amount=${encodeURIComponent(amount)}&price=${price}`, {
+                    method: 'POST',
+                    headers: {
+                        'Accept': 'application/json'
+                    }
+                });
+
+                if (!response.ok) {
+                    throw new Error("Failed to create shop product.");
+                }
+
+                const data = await response.json();
+                alert("Shop product added successfully!");
+                // Redirect to Add Product page after successful submission
+                window.location.href = "@Url.Action("Addproduct", "Admin")";
+            } catch (error) {
+                console.error("Error creating shop product:", error);
+                alert("Failed to save the product. Please try again.");
+            }
+        });
+
+        // Initial loading of products
+        loadProducts();
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,176 @@
+﻿@{
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<body>
+    <!-- Categories Section -->
+    <section class="container-fluid p-4">
+        <div class="row">
+            <div class="col-lg-12 col-md-12 col-12">
+                <!-- Page header -->
+                <div class="border-bottom pb-3 mb-3 d-lg-flex align-items-center justify-content-between">
+                    <div>
+                        <h1 class="mb-0 h2 fw-bold">Edit Categories</h1>
+                        <!-- Breadcrumb -->
+                        <nav aria-label="breadcrumb">
+                            <ol class="breadcrumb">
+                                <li class="breadcrumb-item">
+                                    <a href="@Url.Action("Users", "Admin")">Dashboard</a>
+                                </li>
+                                <li class="breadcrumb-item active" aria-current="page">
+                                    Edit Categories
+                                </li>
+                            </ol>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- row -->
+        <div class="row">
+            <div class="col-lg-12 col-12">
+                <!-- card -->
+                <!-- card body -->
+                <form id="form" enctype="multipart/form-data" onsubmit="editCategory(event)">
+                    <div>
+                        <!-- input for category name -->
+                        <div class="mb-3">
+                            <label class="form-label">Category Title</label>
+                            <input type="text" class="form-control" placeholder="Enter Category Title" name="name" required>
+                        </div>
+                        <!-- input for category description -->
+                        <div class="mb-3">
+                            <label class="form-label">Category Description</label>
+                            <input type="text" class="form-control" placeholder="Enter category description" name="description" required>
+                        </div>
+                        <!-- input for category image -->
+                        <div class="mb-3">
+                            <label class="form-label">Category Image</label>
+                            <input type="file" class="form-control" name="image">
+                        </div>
+                    </div>
+
+                    <div class="d-grid">
+                        <button href="#" class="btn btn-primary" type="submit">
+                            Edit Category
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Include your script at the end of the body -->
+    <script>
+        // Wait for the DOM to be fully loaded
+        document.addEventListener("DOMContentLoaded", async function () {
+            console.log("DOM fully loaded and parsed.");
+
+            const form = document.getElementById("form");
+            if (!form) {
+                console.error("Form element with id 'form' not found.");
+                return;
+            }
+
+            console.log("Attempting to load category details...");
+
+            // Load category details when the page loads
+            await loadCategoryDetails();
+
+            console.log("Attaching form submission handler...");
+
+            // Attach the form submission event handler
+            form.onsubmit = function (event) {
+                console.log("Form submitted. Calling editCategory()...");
+                editCategory(event);
+            };
+        });
+
+        // Function to load category details and populate the form
+        async function loadCategoryDetails() {
+            // Extract category ID from the URL
+            const categoryId = window.location.pathname.split("/").pop();
+
+            console.log("Category ID from URL:", categoryId); // Debug log
+
+            if (!categoryId) {
+                console.warn("Category ID is missing from the URL.");
+                alert("Category ID is missing.");
+                return;
+            }
+
+            console.log("Loading category details for ID:", categoryId);
+
+            try {
+                const response = await fetch(`http://localhost:5097/api/Categories/${categoryId}`);
+                if (!response.ok) {
+                    console.error("Failed to fetch category details. Status:", response.status);
+                    alert("Failed to load category details.");
+                    return;
+                }
+
+                const category = await response.json();
+                console.log("Received category data:", category);
+
+                // Check if the response contains $values and extract it
+                const categoryData = category?.$values?.[0] || category;
+                console.log("Using category data:", categoryData);
+
+                // Populate form fields with the retrieved data
+                document.querySelector('input[name="name"]').value = categoryData.name || '';
+                document.querySelector('input[name="description"]').value = categoryData.description || '';
+            } catch (error) {
+                console.error("Error fetching category details:", error);
+                alert("Failed to load category details.");
+            }
+        }
+
+        // Function to handle form submission and update the category
+        async function editCategory(event) {
+            event.preventDefault();
+
+            const categoryId = window.location.pathname.split("/").pop();
+            if (!categoryId) {
+                alert("Category ID is missing.");
+                return;
+            }
+
+            const name = document.querySelector('input[name="name"]').value.trim();
+            const description = document.querySelector('input[name="description"]').value.trim();
+            const image = document.querySelector('input[name="image"]').files[0]; // Get the selected file
+
+            if (!name || !description) {
+                alert("Both fields are required.");
+                return;
+            }
+
+            const formData = new FormData();
+            formData.append("name", name);
+            formData.append("description", description);
+            if (image) {
+                formData.append("image", image); // Append the image file
+            }
+
+            try {
+                const response = await fetch(`http://localhost:5097/api/Categories/${categoryId}`, {
+                    method: "PUT",
+                    body: formData
+                });
+
+                if (response.ok) {
+                    alert("Category updated successfully.");
+                    window.location.href = "@Url.Action("Categories", "Admin")";
+                } else {
+                    alert("Failed to update category.");
+                }
+            } catch (error) {
+                console.error("Error:", error);
+                alert("An error occurred.");
+            }
+        }
+    </script>
+</body>
+</html>

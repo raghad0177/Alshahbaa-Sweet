@@ -1,0 +1,660 @@
+﻿@{
+    ViewData["Title"] = "Branches Page";
+}
+<!DOCTYPE html>
+<html dir="rtl" lang="ar">
+
+<!-- Mirrored from 7oroof.com/demos/steakin/homepage-arabic.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 07 Nov 2024 07:49:20 GMT -->
+<head>
+    <!-- Document Meta
+    ============================================= -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!--IE Compatibility Meta-->
+    <meta name="author" content="zytheme" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="description" content="Elegant Restaurant & Cafe Html5 Template by zytheme">
+    <link href="~/assets/images/favicon/favicon.png" rel="icon">
+
+    <!-- Fonts
+    ============================================= -->
+    <link href="https://fonts.googleapis.com/css?family=Changa:200,300,400,500,600,700&amp;subset=arabic" rel="stylesheet">
+
+    <!-- Stylesheets
+    ============================================= -->
+    <link href="~/assets/css/external.css" rel="stylesheet">
+    <link href="~/assets/css/bootstrap.min.css" rel="stylesheet">
+    <link href="~/assets/css/style2.css" rel="stylesheet">
+    <link type="text/css" href="~/assets/css/style-rtl1.css" rel="stylesheet" />
+    <link type="text/css" href="~/assets/css/style-arabic.css" rel="stylesheet" />
+
+    <!-- RS5.0 Main Stylesheet -->
+    <link rel="stylesheet" type="text/css" href="~/assets/revolution/css/settings.css">
+    <link rel="stylesheet" type="text/css" href="~/assets/revolution/css/layers.css">
+    <link rel="stylesheet" type="text/css" href="~/assets/revolution/css/navigation.css">
+
+    <!-- HTML5 shim, for IE6-8 support of HTML5 elements. All other JS at the end of file. -->
+    <!--[if lt IE 9]>
+      <script src="assets/js/html5shiv.js"></script>
+      <script src="assets/js/respond.min.js"></script>
+    <![endif]-->
+    <!-- Document Title
+    ============================================= -->
+    <title>حلويات سلورة الشهباء</title>
+
+  
+<style>
+    /* General Styles */
+    .branch-info-section {
+        padding: 40px 0px;
+        direction: rtl; /* Set the direction to RTL */
+    }
+
+    .branch-details {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .branch-info {
+        margin-bottom: 20px;
+    }
+
+    .branch-image img {
+        max-width: 100%;
+        border-radius: 8px;
+    }
+
+    /* Stylish line under the <h3> */
+    .branch-info h3 {
+        border-bottom: 2px solid #2c3e50; /* Dark color for the line */
+        padding-bottom: 20px; /* Space between the text and the line */
+        margin-bottom: 20px; /* Space below the line */
+        font-size: 1.8rem;
+        color: #2c3e50; /* Color of the header */
+    }
+
+    /* Google Map Section */
+    .google-maps-section {
+        margin-top: 20px;
+    }
+
+    .branch-info p {
+        margin-right: 20px;
+        margin-bottom: 5px; /* Adjust the value as needed */
+    }
+
+    /* Hide branch-image on small screens */
+    /* For medium screens (e.g., tablets) */
+    @@media (min-width: 768px) and (max-width: 991px) {
+        .branch-image {
+            display: none; /* Hide images on medium screens */
+        }
+    }
+
+    @@media (max-width: 767px) {
+        .branch-image {
+            display: none; /* Hide images on small screens */
+        }
+    }
+
+    @@media (max-width: 480px) {
+        .branch-image {
+            display: none;
+        }
+    }
+</style>
+  </head>
+
+<body>
+    <div class="preloader">
+        <div class="spinner">
+            <div class="bounce1"></div>
+            <div class="bounce2"></div>
+            <div class="bounce3"></div>
+        </div>
+    </div>
+    <!-- Document Wrapper
+    ============================================= -->
+    <div id="wrapper" class="wrapper clearfix">
+        <header id="navbar-spy" class="header header-1 header-transparent header-fixed">
+            <nav id="primary-menu" class="navbar navbar-fixed-top">
+                <div class="container">
+                    <!-- Brand and toggle get grouped for better mobile display -->
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse-1" aria-expanded="false">
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                        <a class="logo" href="index.html">
+                            <img class="logo-light" src="~/assets/images/logo/logo-light.png" alt="Steakin Logo" draggable="false">
+                            <img class="logo-dark" src="~/assets/images/logo/logo-dark.png" alt="Steakin Logo" draggable="false">
+                        </a>
+                    </div>
+
+                    <!-- Collect the nav links, forms, and other content for toggling -->
+                    <div class="collapse navbar-collapse pull-right" id="navbar-collapse-1">
+                        <ul class="nav navbar-nav nav-pos-right navbar-left">
+                            <!-- Home Menu -->
+                            <li class="has-dropdown mega-dropdown active">
+                                <a href="@Url.Action("Index", "Customer")" class="dropdown-toggle menu-item">الرئيسية</a>
+                                <ul class="dropdown-menu">
+                                </ul>
+                                <!-- .mega-dropdown-menu end -->
+                            </li>
+
+                            <li class="has-dropdown">
+                                <a href="@Url.Action("AboutUs", "Customer")" class="link-hover">من نحن</a>
+                            </li>
+                            <li class="has-dropdown">
+                                <a href="@Url.Action("Menu", "Customer")" class="link-hover">المنيو</a>
+                            </li>
+
+                            <li class="has-dropdown">
+                                <a href="@Url.Action("Branches", "Customer")" class="link-hover">فروعنا</a>
+                            </li>
+                            <li>
+                                <a href="@Url.Action("FAQ", "Customer")" class="link-hover">الأسئلة الشائعة</a>
+
+                            </li>
+
+                            <li>
+                                <a href="@Url.Action("Shop", "Customer")" class="link-hover">تسوق</a>
+                            </li>
+                            <li>
+                                <a href="@Url.Action("OrderHistory", "Customer")" class="link-hover">سجل الطلبات</a>
+                            </li>
+                            <li>
+                                <a href="@Url.Action("Settings", "Customer")" class="link-hover">الاعدادات</a>
+                            </li>
+
+                        </ul>
+
+
+                        <div class="module module-reservation pull-left">
+                            <a href="@Url.Action("Index", "Home")" class="btn-popup btn-popup-theme" data-target="#reservationModule">تسجيل الخروج</a>
+                        </div>
+
+                        <!-- Module Reservation (Same Modal for Sign In) -->
+                        <!-- Module Cart -->
+                        <div class="module module-cart pull-left">
+                            <div class="module-icon cart-icon" data-url="@Url.Action("Cart", "Customer")">
+                                <i class="fa fa-shopping-cart"></i>
+                                <span class="title">الطلبات</span>
+                                <label class="module-label">0</label>
+                            </div>
+                        </div>
+                        <!-- .module-cart end -->
+                        <!-- Module Search -->
+                        <div class="module module-search pull-left">
+                            <div class="module-icon search-icon">
+                                <i class="fa fa-search"></i>
+                                <span class="title">بحث</span>
+                            </div>
+                            <div class="module-content module-fullscreen module--search-box">
+                                <div class="pos-vertical-center">
+                                    <div class="container">
+                                        <div class="row">
+                                            <div class="col-xs-12 col-sm-12 col-md-8 col-md-offset-2">
+                                                <form class="form-search">
+                                                    <input type="text" class="form-control" placeholder="اكتب كلمات البحث...">
+                                                    <button class="btn" type="button"><i class="fa fa-search"></i></button>
+                                                </form>
+                                                <!-- .form-search end -->
+                                            </div>
+                                            <!-- .col-md-8 end -->
+                                        </div>
+                                        <!-- .row end -->
+                                    </div>
+                                    <!-- .container end -->
+                                </div>
+                                <a class="module-cancel" href="#"><i class="fa fa-times"></i></a>
+                            </div>
+                        </div>
+                        <!-- .module-search end -->
+                        <!-- Module Side NAV -->
+                        <div class="module module-side-nav pull-left">
+                            <div class="module-icon side-nav-icon">
+                                <i class="fa fa-bars"></i>
+                                <span class="title">Side Navigation</span>
+                            </div>
+                            <div class="module-content module-hamburger">
+                                <div class="hamburger-panel module-widgets" style="max-height: 80vh; overflow-y: auto;">
+                                    <!-- Facebook Feed -->
+                                    <div class="widget widget-facebook">
+                                        <div class="widget--title">
+                                            <h5>فيسبوك</h5>
+                                        </div>
+                                        <div class="widget--content">
+                                            <div class="fb-page"
+                                                 data-href="https://www.facebook.com/ALshahbaaSweets"
+                                                 data-tabs="timeline"
+                                                 data-width="500"
+                                                 data-height="300"
+                                                 data-small-header="false"
+                                                 data-adapt-container-width="true"
+                                                 data-hide-cover="false"
+                                                 data-show-facepile="true">
+                                            </div>
+                                            <div class="clearfix"></div>
+                                        </div>
+                                    </div>
+                                    <!-- .widget-facebook end -->
+                                    <!-- Instagram Feed -->
+                                    <div class="widget widget-instagram">
+                                        <div class="widget--title">
+                                            <h5>إنستجرام</h5>
+                                        </div>
+                                        <div class="widget--content" style="max-height: 80vh; overflow-y: auto; margin: auto;">
+                                            <blockquote class="instagram-media"
+                                                        data-instgrm-permalink="https://www.instagram.com/p/DC69YtXtavy/"
+                                                        data-instgrm-version="14"
+                                                        style="max-width: 100%; padding: 0; border: none; overflow: hidden; margin: auto;">
+                                            </blockquote>
+                                            <script async src="https://www.instagram.com/embed.js"></script>
+                                        </div>
+                                    </div>
+                                    <!-- .widget-instagram end -->
+                                    <!-- Tag Clouds -->
+                                    <div class="widget widget-tags">
+                                        <div class="widget--title">
+                                            <h5>الأوسمة</h5>
+                                        </div>
+                                        <div class="widget--content">
+                                            <a href="#">حلاوة الجبن</a>
+                                            <a href="#">حلاوة الجبن بالقشطة</a>
+                                            <a href="#">العروض الخاصة</a>
+                                            <a href="#">منتجاتنا</a>
+                                        </div>
+                                    </div>
+                                    <!-- .widget-tags end -->
+
+                                    <a class="module-cancel" href="#" onclick="event.stopPropagation(); closeSideNav();">
+                                        <i class="fa fa-times"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- /.module-side-nav -->
+                    </div>
+                    <!-- /.navbar-collapse -->
+                </div>
+                <!-- /.container-fluid -->
+            </nav>
+        </header>
+
+
+
+
+        <!-- Page Title #1
+        ============================================= -->
+        <section id="page-title" class="page-title bg-overlay bg-parallax bg-overlay-gradient">
+            <div class="bg-section">
+                <img src="~/assets/images/page-title/10.jpg" alt="Background" />
+            </div>
+            <div class="container">
+                <div class="row">
+                    <div class="col-xs-12 col-sm-12 col-md-12">
+                        <div class="title title-1 text-center">
+                            <div class="title--content">
+                                <div class="title--subtitle">حلويات سلورة الشهباء</div>
+                                <div class="title--heading">
+                                    <h1>فروعنا</h1>
+                                </div>
+                            </div>
+                            <div class="clearfix"></div>
+
+                            <div class="divider--shape-1down"></div>
+                        </div>
+                        <!-- .title end -->
+                    </div>
+                    <!-- .col-md-12 end -->
+                </div>
+                <!-- .row end -->
+            </div>
+            <!-- .container end -->
+        </section>
+        <!-- #page-title end -->
+        <!-- Branch Information and Google Map Section -->
+        <!-- معلومات الفرع وخريطة جوجل -->
+        <section id="branch-info" class="branch-info-section">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="branch-details">
+                            <div class="row">
+                                <!-- معلومات الفرع -->
+                                <div class="col-md-6 branch-info">
+                                    <h3>وسط البلد</h3>
+                                    <p><strong>الموقع:</strong> وسط البلد - شارع الشابسوغ, عمان، الأردن</p>
+                                    <p><strong>الهاتف:</strong> <a href="tel:+962798002800" dir="ltr"> +962 7 9199 1212 </a></p>
+                                    <p><strong>البريد الإلكتروني:</strong> <a href="mailto:order@aghatisweets.com">order@aghatisweets.com</a></p>
+                                    <p><strong>ساعات العمل:</strong></p>
+                                    <p>السبت - الأربعاء: 8 صباحًا - 12 منتصف الليل</p>
+                                    <p>الخميس - الجمعة: 8 صباحًا - 1:00 صباحًا</p>
+                                    <br>
+                                    <!-- زر "الاتجاهات" -->
+                                    <div class="col-xs-12 col-sm-12 col-md-12 text-center">
+                                        <a class="btn btn--primary btn--block" href="https://www.google.com/maps/place/%D8%AD%D9%84%D9%88%D9%8A%D8%A7%D8%AA+%D8%B3%D9%84%D9%88%D8%B1%D8%A9+%D8%A7%D9%84%D8%B4%D9%87%D8%A8%D8%A7%D8%A1+-+%D9%88%D8%B3%D8%B7+%D8%A7%D9%84%D8%A8%D9%84%D8%AF+-+%D8%B4%D8%A7%D8%B1%D8%B9+%D8%A7%D9%84%D8%B4%D8%A7%D8%A8%D8%B3%D9%88%D8%BA%E2%80%AD/@@31.9518337,35.9381488,17z/data=!3m1!4b1!4m6!3m5!1s0x151b5f97ee94f0b1:0x6d21497861616564!8m2!3d31.9518337!4d35.9355739!16s%2Fg%2F11d_v9v9lm?entry=ttu&g_ep=EgoyMDI0MTEyNC4xIKXMDSoASAFQAw%3D%3D" target="_blank">الاتجاهات</a>
+                                    </div>
+                                </div>
+                                <!-- صورة الفرع -->
+                                <div class="col-md-6 branch-image">
+                                    <img src="~/assets/images/tabs/mabna.jpg" alt="صورة الفرع" class="img-responsive">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+
+        <!-- معلومات الفرع وخريطة جوجل -->
+        <section id="branch-info" class="branch-info-section">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="branch-details">
+                            <div class="row">
+                                <!-- معلومات الفرع -->
+                                <div class="col-md-6 branch-info">
+                                    <h3>خلدا </h3>
+                                    <p>
+                                        <strong>الموقع:</strong> الأردن -عمان - خلدا - بجانب مفروشات ميداس
+                                    </p>
+                                    <p><strong>الهاتف:</strong> <a href="tel:+962798002800" dir="ltr"> +962 7 9199 1212 </a></p>
+                                    <p><strong>البريد الإلكتروني:</strong> <a href="mailto:order@aghatisweets.com">order@aghatisweets.com</a></p>
+                                    <p><strong>ساعات العمل:</strong></p>
+                                    <p>السبت - الأربعاء: 8 صباحًا - 12 منتصف الليل</p>
+                                    <p>الخميس - الجمعة: 8 صباحًا - 1:00 صباحًا</p>
+                                    <br>
+                                    <!-- زر "الاتجاهات" -->
+                                    <div class="col-xs-12 col-sm-12 col-md-12 text-center">
+                                        <a class="btn btn--primary btn--block" href="https://www.google.com/maps/place/%D8%AD%D9%84%D9%88%D9%8A%D8%A7%D8%AA+%D8%B3%D9%84%D9%88%D8%B1%D8%A9+%D8%A7%D9%84%D8%B4%D9%87%D8%A8%D8%A7%D8%A1+%D8%AE%D9%84%D8%AF%D8%A7%E2%80%AD/@@31.9967956,35.8555831,17z/data=!3m1!4b1!4m6!3m5!1s0x151ca120f2dbc90d:0x5cea070ed6f1a02e!8m2!3d31.9967956!4d35.8530082!16s%2Fg%2F11f612tkcs?entry=ttu&g_ep=EgoyMDI0MTEyNC4xIKXMDSoASAFQAw%3D%3D" target="_blank">الاتجاهات</a>
+                                    </div>
+                                </div>
+                                <!-- صورة الفرع -->
+                                <div class="col-md-6 branch-image">
+                                    <img src="~/assets/images/tabs/mabna.jpg" alt="صورة الفرع" class="img-responsive">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- معلومات الفرع وخريطة جوجل -->
+        <section id="branch-info" class="branch-info-section">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="branch-details">
+                            <div class="row">
+                                <!-- معلومات الفرع -->
+                                <div class="col-md-6 branch-info">
+                                    <h3>الجبيهة </h3>
+                                    <p>
+                                        <strong>الموقع:</strong>  الأردن - عمان - الجبيهة - مقابل بنك الاتحاد
+                                    </p>
+                                    <p><strong>الهاتف:</strong> <a href="tel:+962798002800" dir="ltr"> +962 7 9199 1212 </a></p>
+                                    <p><strong>البريد الإلكتروني:</strong> <a href="mailto:order@aghatisweets.com">order@aghatisweets.com</a></p>
+                                    <p><strong>ساعات العمل:</strong></p>
+                                    <p>السبت - الأربعاء: 8 صباحًا - 12 منتصف الليل</p>
+                                    <p>الخميس - الجمعة: 8 صباحًا - 1:00 صباحًا</p>
+                                    <br>
+                                    <!-- زر "الاتجاهات" -->
+                                    <div class="col-xs-12 col-sm-12 col-md-12 text-center">
+                                        <a class="btn btn--primary btn--block" href="https://www.google.com/maps/place/%D8%AD%D9%84%D9%88%D9%8A%D8%A7%D8%AA+%D8%B3%D9%84%D9%88%D8%B1%D8%A9+%D8%A7%D9%84%D8%B4%D9%87%D8%A8%D8%A7%D8%A1+%D8%A7%D9%84%D8%AC%D8%A8%D9%8A%D9%87%D8%A9%E2%80%AD/@@32.0289026,35.8659803,17z/data=!3m1!4b1!4m6!3m5!1s0x151c9fb484ec3a63:0x1497c7f37447e936!8m2!3d32.0289026!4d35.8659803!16s%2Fg%2F11k5fygzmn?entry=ttu&g_ep=EgoyMDI0MTEyNC4xIKXMDSoASAFQAw%3D%3D" target="_blank">الاتجاهات</a>
+                                    </div>
+                                </div>
+                                <!-- صورة الفرع -->
+                                <div class="col-md-6 branch-image">
+                                    <img src="~/assets/images/tabs/mabna.jpg" alt="صورة الفرع" class="img-responsive">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- معلومات الفرع وخريطة جوجل -->
+        <section id="branch-info" class="branch-info-section">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="branch-details">
+                            <div class="row">
+                                <!-- معلومات الفرع -->
+                                <div class="col-md-6 branch-info">
+                                    <h3>ش. المدينة المنورة </h3>
+                                    <p>
+                                        <strong>الموقع:</strong> الأردن - عمان - ش. المدينة المنورة - قرب دوار الكيلو
+                                    </p>
+                                    <p><strong>الهاتف:</strong> <a href="tel:+962798002800" dir="ltr"> +962 7 9199 1212 </a></p>
+                                    <p><strong>البريد الإلكتروني:</strong> <a href="mailto:order@aghatisweets.com">order@aghatisweets.com</a></p>
+                                    <p><strong>ساعات العمل:</strong></p>
+                                    <p>السبت - الأربعاء: 8 صباحًا - 12 منتصف الليل</p>
+                                    <p>الخميس - الجمعة: 8 صباحًا - 1:00 صباحًا</p>
+                                    <br>
+                                    <!-- زر "الاتجاهات" -->
+                                    <div class="col-xs-12 col-sm-12 col-md-12 text-center">
+                                        <a class="btn btn--primary btn--block" href="https://www.google.com/maps/place/%D8%AD%D9%84%D9%88%D9%8A%D8%A7%D8%AA+%D8%B3%D9%84%D9%88%D8%B1%D8%A9+%D8%A7%D9%84%D8%B4%D9%87%D8%A8%D8%A7%D8%A1+%D8%B4%D8%A7%D8%B1%D8%B9+%D8%A7%D9%84%D9%85%D8%AF%D9%8A%D9%86%D8%A9+%D8%A7%D9%84%D9%85%D9%86%D9%88%D8%B1%D8%A9%E2%80%AD/@@31.963995,35.8644122,17z/data=!3m1!4b1!4m6!3m5!1s0x151ca125303e67ff:0x7a39b923c8ea9505!8m2!3d31.963995!4d35.8644122!16s%2Fg%2F11jq7wprsb?entry=ttu&g_ep=EgoyMDI0MTEyNC4xIKXMDSoASAFQAw%3D%3D" target="_blank">الاتجاهات</a>
+                                    </div>
+                                </div>
+                                <!-- صورة الفرع -->
+                                <div class="col-md-6 branch-image">
+                                    <img src="~/assets/images/tabs/mabna.jpg" alt="صورة الفرع" class="img-responsive">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- معلومات الفرع وخريطة جوجل -->
+        <section id="branch-info" class="branch-info-section">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="branch-details">
+                            <div class="row">
+                                <!-- معلومات الفرع -->
+                                <div class="col-md-6 branch-info">
+                                    <h3>مخيم الحسين</h3>
+                                    <p>
+                                        <strong>الموقع:</strong> مخيم الحسين - قرب تقاطع مخيم الحسين
+                                    </p>
+                                    <p><strong>الهاتف:</strong> <a href="tel:+962798002800" dir="ltr"> +962 7 9199 1212 </a></p>
+                                    <p><strong>البريد الإلكتروني:</strong> <a href="mailto:order@aghatisweets.com">order@aghatisweets.com</a></p>
+                                    <p><strong>ساعات العمل:</strong></p>
+                                    <p>السبت - الأربعاء: 8 صباحًا - 12 منتصف الليل</p>
+                                    <p>الخميس - الجمعة: 8 صباحًا - 1:00 صباحًا</p>
+                                    <br>
+                                    <!-- زر "الاتجاهات" -->
+                                    <div class="col-xs-12 col-sm-12 col-md-12 text-center">
+                                        <a class="btn btn--primary btn--block" href="https://www.google.com/maps/place/%D8%AD%D9%84%D9%88%D9%8A%D8%A7%D8%AA+%D8%B3%D9%84%D9%88%D8%B1%D8%A9+%D8%A7%D9%84%D8%B4%D9%87%D8%A8%D8%A7%D8%A1+%D8%AC%D8%A8%D9%84+%D8%A7%D9%84%D8%AD%D8%B3%D9%8A%D9%86%E2%80%AD/@@31.9608203,35.9282979,17z/data=!3m1!4b1!4m6!3m5!1s0x151b5fe8329661b9:0x9fb11cd69477a38f!8m2!3d31.9608203!4d35.9282979!16s%2Fg%2F11p01mm7qy?entry=ttu&g_ep=EgoyMDI0MTEyNC4xIKXMDSoASAFQAw%3D%3D" target="_blank">الاتجاهات</a>
+                                    </div>
+                                </div>
+                                <!-- صورة الفرع -->
+                                <div class="col-md-6 branch-image">
+                                    <img src="~/assets/images/tabs/mabna.jpg" alt="صورة الفرع" class="img-responsive">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+       <!-- footer#1
+============================================= -->
+<footer id="footer" class="footer footer-1 text-center">
+  <div class="divider--shape-dark"></div>
+  <!-- Widget Section
+============================================= -->
+  <div class="footer--widget text--center">
+      <div class="container">
+          <div class="row">
+              <div class="col-xs-12 col-sm-6 col-md-4">
+                  <div class="footer--widget-content">
+                      <h3>تابعونا على وسائل التواصل</h3>
+                      <div class="footer--social-icons">
+                        <a href="https://www.instagram.com/alshahbaasweets?igsh=ZXY5bTlrdnFqaHNz" target="_blank">
+                          <i class="fa fa-instagram"></i>
+                      </a>
+                      <a href="https://www.facebook.com/ALshahbaaSweets?mibextid=ZbWKwL" target="_blank">
+                          <i class="fa fa-facebook"></i>
+                      </a>
+                      
+                      </div>
+                      <!-- .social-icons end -->
+                  </div>
+              </div>
+              <!-- .col-md-4 end -->
+              <div class="col-xs-12 col-sm-6 col-md-4">
+                  <div class="footer--widget-content">
+                                <img class="mb-20" src="~/assets/images/logo/logo-light.png" alt="logo">
+                      <p>في سلورة، نضع شغفنا في كل طبق نقدمه. استمتعوا بأفضل الحلويات والمأكولات التي تعكس أصالة الطابع الشرقي بلمسة عصرية. اجعلوا لحظاتكم الخاصة أكثر تميزًا معنا.</p>
+                  </div>
+              </div>
+              <!-- .col-md-3 end -->
+
+              <div class="col-xs-12 col-sm-6 col-md-4">
+                  <div class="footer--widget-content">
+                      <h3>ساعات عملنا</h3>
+                      <div class="widget--newsletter" dir="rtl">
+                        <form class="footer--social-newsletter">
+                            <input type="text" name="working-hours" class="form-control" placeholder="السبت - الأربعاء: 8 صباحًا - 12 منتصف الليل" disabled>
+                        </form>
+                    </div>
+                    <br>
+                    <div class="widget--newsletter" dir="rtl">
+                      <form class="footer--social-newsletter">
+                        <input type="text" name="working-hours" class="form-control" placeholder="الخميس - الجمعة: 8 صباحًا - 1:00 صباحًا" disabled>
+                      </form>
+                  </div>
+                      <!-- .widget end -->
+                  </div>
+              </div>
+              <!-- .col-md-3 end -->
+          </div>
+      </div>
+      <!-- .container end -->
+  </div>
+  <!-- .footer-widget end -->
+  <!-- Copyrights
+============================================= -->
+  <div class="footer--copyright text-center">
+      <div class="divider--shape-dark2"></div>
+      <div class="container">
+          <div class="row">
+              <div class="col-xs-12 col-sm-5 col-md-12">
+                  <div class="contact-info">
+                  
+                      <span> <a href="tel:+962798002800" dir="ltr"> +962 7 9199 1212 </a></span> -
+                      <span><a href="mailto:order@aghatisweets.com">order@aghatisweets.com</a></span>
+                  </div>
+              </div>
+              <div class="col-xs-12 col-sm-5 col-md-12">
+                <span>&copy; جميع الحقوق محفوظة لسلورة الشهباء 2024</span>
+            </div>
+            
+          </div>
+      </div>
+      <!-- .container end -->
+  </div>
+  <!-- .footer-copyright end -->
+</footer>
+</div>
+<!-- #wrapper end -->
+
+<!-- Footer Scripts
+============================================= -->
+<script data-cfasync="false" src="../../cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script src="~/assets/js/jquery-2.2.4.min.js"></script>
+<script src="~/assets/js/plugins.js"></script>
+    <script src="~/assets/js/functions.js"></script>
+<!-- RS5.0 Core JS Files -->
+    <script src="~/assets/revolution/js/jquery.themepunch.tools.min838f.js?rev=5.0"></script>
+    <script src="~/assets/revolution/js/jquery.themepunch.revolution.min838f.js?rev=5.0"></script>
+    <script src="~/assets/revolution/js/extensions/revolution.extension.video.min.js"></script>
+    <script src="~/assets/revolution/js/extensions/revolution.extension.slideanims.min.js"></script>
+    <script src="~/assets/revolution/js/extensions/revolution.extension.actions.min.js"></script>
+    <script src="~/assets/revolution/js/extensions/revolution.extension.layeranimation.min.js"></script>
+    <script src="~/assets/revolution/js/extensions/revolution.extension.kenburn.min.js"></script>
+    <script src="~/assets/revolution/js/extensions/revolution.extension.navigation.min.js"></script>
+    <script src="~/assets/revolution/js/extensions/revolution.extension.migration.min.js"></script>
+    <script src="~/assets/revolution/js/extensions/revolution.extension.parallax.min.js"></script>
+<!-- RS Configration JS Files -->
+    <script src="~/assets/js/rsconfig.js"></script>
+    <script async src="//www.instagram.com/embed.js"></script>
+
+
+    <!-- Facebook SDK Script -->
+<div id="fb-root"></div>
+<script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v15.0" nonce="XnIuYmj5"></script>
+
+    <script>
+        // Prevent immediate disappearance of the side navigation
+        document.querySelector('.module-side-nav').addEventListener('click', function (e) {
+            e.stopPropagation();
+        });
+
+        // Function to close the side nav
+        function closeSideNav() {
+            document.querySelector('.module-side-nav').style.display = 'none';
+        }
+    </script>
+
+
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            // Update the cart count dynamically
+            function updateCartCount() {
+                const cart = JSON.parse(localStorage.getItem("cart")) || [];
+                const totalItems = cart.reduce((total, item) => total + (item.quantity || 0), 0);
+
+                const cartCountLabel = document.querySelector(".module-label");
+                cartCountLabel.textContent = totalItems;
+            }
+
+            // Add click event to redirect to the cart page
+            document.querySelector(".module-icon.cart-icon").addEventListener("click", () => {
+                window.location.href = '@Url.Action("Cart", "Customer")'; // Server-side routing
+            });
+
+            // Update cart count on page load
+            updateCartCount();
+        });
+    </script>
+
+    <script src="~/assets/js/tabs.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const logoutButton = document.querySelector('.btn-popup');
+            if (logoutButton) {
+                logoutButton.addEventListener('click', function (event) {
+                    // Clear local storage
+                    localStorage.clear();
+
+                    // Optionally, log the action for debugging
+                    console.log('Local storage cleared.');
+
+                    // Allow default navigation to the logout URL
+                });
+            }
+        });
+    </script>
+</body>
+
+
+</html>

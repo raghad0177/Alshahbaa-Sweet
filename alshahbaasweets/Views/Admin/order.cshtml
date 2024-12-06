@@ -1,0 +1,243 @@
+﻿@{
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<body>
+
+    <!-- Container fluid -->
+    <section class="container-fluid p-4">
+        <div class="row ">
+            <div class="col-lg-12 col-md-12 col-12">
+                <!-- Page header -->
+                <div class="border-bottom pb-3 mb-3 d-lg-flex align-items-center justify-content-between">
+                    <div class="mb-2 mb-lg-0">
+                        <h1 class="mb-0 h2 fw-bold">Orders</h1>
+                        <!-- Breadcrumb -->
+                        <nav aria-label="breadcrumb">
+                            <ol class="breadcrumb">
+                                <li class="breadcrumb-item">
+                                    <a href=" @Url.Action("Users", "Admin")">Dashboard</a>
+                                </li>
+                                <li class="breadcrumb-item active" aria-current="page">
+                                    Orders
+                                </li>
+                            </ol>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-12 col-md-12 col-12">
+                <!-- Card -->
+                <div class="card rounded-3">
+                    <!-- Card Header -->
+                    <div class="card-header border-bottom-0 p-0">
+                        <!-- nav -->
+                        <ul class="nav nav-lb-tab" id="tab" role="tablist">
+                            <li class="nav-item">
+                                <a class="nav-link active" id="all-orders-tab" data-bs-toggle="pill"
+                                   href="#all-orders" role="tab" aria-controls="all-orders"
+                                   aria-selected="true">All Orders</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" id="shipped-tab" data-bs-toggle="pill" href="#shipped"
+                                   role="tab" aria-controls="shipped" aria-selected="false">Shipped</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" id="cancelled-tab" data-bs-toggle="pill" href="#cancelled"
+                                   role="tab" aria-controls="cancelled" aria-selected="false">Cancelled</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" id="return-tab" data-bs-toggle="pill" href="#return"
+                                   role="tab" aria-controls="return" aria-selected="false">Return</a>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <div class="tab-content" id="tabContent">
+                            <!-- Tab -->
+                            <div class="tab-pane fade show active" id="all-orders" role="tabpanel"
+                                 aria-labelledby="all-orders-tab">
+                                <div class="table-responsive">
+                                    <!-- Table -->
+                                    <table class="table mb-0 text-nowrap table-hover table-centered table-with-checkbox">
+                                        <!-- Table Head -->
+                                        <thead class="table-light">
+                                            <tr>
+                                                <th>
+                                                    <div class="form-check">
+                                                        <input type="checkbox" class="form-check-input"
+                                                               id="checkAll">
+                                                        <label class="form-check-label" for="checkAll"></label>
+                                                    </div>
+                                                </th>
+                                                <th>ORDER</th>
+                                                <th>Customer</th>
+                                                <th>Date</th>
+                                                <th>Items</th>
+                                                <th>Total</th>
+                                                <th>Order Status</th>
+                                                <th></th>
+                                            </tr>
+                                        </thead>
+                                        <tbody id="orders">
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        async function getData() {
+            const url = "http://localhost:5097/api/Order/AllOrders";  // Ensure this is your correct API URL
+
+            try {
+                const response = await fetch(url);
+                const data = await response.json();
+
+                console.log("Fetched Data:", data);  // Log the fetched data for debugging
+
+                const orders = data.$values || data;  // Use $values if it exists, otherwise fall back to data
+                if (!Array.isArray(orders)) {
+                    console.error("Expected 'orders' to be an array but got:", orders);
+                    return;
+                }
+
+                let tableBody = document.getElementById("orders");
+                tableBody.innerHTML = "";  // Clear existing content before adding new rows
+
+                orders.forEach((order) => {
+                    const customerName = order.customer && order.customer.$values
+                        ? order.customer.$values[0]?.name || "N/A"  // Use the first item if available
+                        : order.customer?.name || "N/A";
+
+                    // Format the order date
+                    const orderDate = new Date(order.date);
+                    const formattedDate = orderDate.toLocaleString('en-US', {
+                        weekday: 'short', // 'Mon', 'Tue', etc.
+                        year: 'numeric', // '2024'
+                        month: 'short', // 'Dec'
+                        day: 'numeric', // '6'
+                        hour: '2-digit', // '08'
+                        minute: '2-digit', // '00'
+                        hour12: true // Use 12-hour clock with AM/PM
+                    });
+
+                    tableBody.innerHTML += `
+                        <tr>
+                            <td>
+                                <div class="form-check">
+                                    <input type="checkbox" class="form-check-input" id="orderOne">
+                                    <label class="form-check-label" for="orderOne"></label>
+                                </div>
+                            </td>
+                            <td>
+                                <a href="#" class="fw-semibold">${order.orderNumber}</a>
+                            </td>
+                            <td>${customerName}</td>
+                            <td>${formattedDate}</td> <!-- Display the formatted date -->
+                            <td>${order.numberOfItems} Items</td>
+                            <td>${order.total.toFixed(2)} JD</td>
+                            <td>
+                                <span class="badge ${getPaymentBadgeClass(order.status)}">${order.status}</span>
+                            </td>
+                            <td>
+                                <a class="dropdown-item" href="@Url.Action("ordersingle", "Admin")" onclick="storeOrderId(${order.orderId})">
+                                    <i class="fe fe-eye dropdown-item-icon"></i>Details
+                                </a>
+                            </td>
+                        </tr>
+                    `;
+                });
+            } catch (error) {
+                console.error("Error fetching data:", error);
+            }
+        }
+
+
+        // Function to get the appropriate badge class based on order status
+        function getPaymentBadgeClass(status) {
+            if (!status) {
+                return 'text-secondary bg-light-secondary';  // Default badge class if status is missing
+            }
+
+            switch (status.toLowerCase()) {
+                case 'processing':
+                    return 'text-primary bg-light-primary';
+                case 'shipped':
+                    return 'text-info bg-light-info';
+                case 'delivered':
+                    return 'text-success bg-light-success';
+                case 'canceled':
+                    return 'text-danger bg-light-danger';
+                default:
+                    return 'text-secondary bg-light-secondary';
+            }
+        }
+
+        // Function to store the orderId in localStorage
+        function storeOrderId(orderId) {
+            localStorage.setItem('orderId', orderId);
+        }
+
+        // Call the getData function when the page loads
+        getData();
+    </script>
+
+    <!-- Notification Sound -->
+    <audio id="notificationSound" src="~/assets/sounds/إشعارات-بيكاتشو.mp3" preload="auto"></audio>
+
+    <script src="https://cdn.jsdelivr.net/npm/@@microsoft/signalr@latest/dist/browser/signalr.min.js"></script>
+    <script>
+        const connection = new signalR.HubConnectionBuilder()
+            .withUrl("http://localhost:5097/notificationsHub")
+            .build();
+
+        connection.start().then(() => {
+            console.log("Connected to the SignalR hub");
+        }).catch(error => {
+            console.error("Error connecting to SignalR hub:", error);
+        });
+
+        connection.on("ReceiveNewOrderNotification", () => {
+            console.log("Received new order notification");
+            showNotification("طلب جديد وصل!");
+        });
+
+        function showNotification(message) {
+            const sound = document.getElementById("notificationSound");
+            sound.play().catch(error => {
+                console.log("Error playing sound:", error);
+            });
+
+            if (Notification.permission === "granted") {
+                new Notification("تنبيه جديد", {
+                    body: message,
+                    icon: "/favicon.ico"
+                });
+            } else if (Notification.permission !== "denied") {
+                Notification.requestPermission().then(permission => {
+                    if (permission === "granted") {
+                        new Notification("تنبيه جديد", {
+                            body: message,
+                            icon: "/favicon.ico"
+                        });
+                    }
+                });
+            }
+        }
+    </script>
+
+</body>
+</html>
